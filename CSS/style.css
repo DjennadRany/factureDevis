@@ -1,0 +1,136 @@
+/* Style pour le formulaire */
+body {
+    background-color: #fff; /* Fond blanc */
+  }
+  
+  h2, h3 {
+    color: #000; /* Couleur du texte */
+  }
+  
+  #conteneur-formulaire {
+    width: 80%; /* Largeur du conteneur à 80% */
+    margin: 0 auto; /* Centrer horizontalement */
+    padding: 20px;
+    background-color: #fff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ombre légère */
+  }
+  
+  /* Style pour les champs d'entrée */
+  input[type="text"], input[type="file"] {
+    width: 100%; /* Largeur à 100% */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style pour les boutons */
+  button {
+    background-color: #ffa800; /* Couleur de fond orange */
+    color: #fff; /* Couleur du texte blanc */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #ff8400; /* Couleur de fond orange foncé au survol */
+  }
+  
+  /* Style pour les cartes graphiques */
+  #logoEntreprise, #logo {
+    background-color: #f6f6f6;
+    border: 1px solid #7d7d7d;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour les titres */
+  h2, h3 {
+    color: #000; /* Couleur du texte */
+  }
+  
+  /* Style pour les étiquettes des radios et checkboxes */
+  label {
+    color: #000; /* Couleur du texte */
+  }
+  
+  /* Style pour les radios et checkboxes */
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /* Style pour la bordure du tableau */
+  table {
+    border: 1px solid #000;
+  }
+  
+  /* Style pour les cellules du tableau */
+  th, td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+  }
+  
+
+    /* Style pour le carré avec un contour gris */
+    .square {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #ccc; /* Contour gris */
+      position: relative;
+    }
+
+    /* Style pour le cercle bleu */
+    .circle {
+      width: 36px;
+      height: 36px;
+      background-color: #00e0ff; /* Couleur de fond bleue */
+      border-radius: 50%; /* Forme de cercle */
+      position: absolute;
+      top: 2px; /* Ajuster la position verticale */
+      left: 2px; /* Ajuster la position horizontale */
+    }
+
+    /* Style pour la croix blanche */
+    .cross {
+      width: 100%;
+      height: 2px;
+      background-color: #fff; /* Couleur blanche */
+      position: absolute;
+      top: 50%; /* Centrer verticalement */
+      left: 0;
+      transform: translate(0, -50%); /* Ajuster verticalement */
+    }
+
+    .header {
+      background-color: purple;
+      color: white;
+      padding: 20px; /* Ajouter un espace autour du texte */
+      text-align: center; /* Centrer le texte horizontalement */
+      margin-bottom: 5em;
+    }
+    footer {
+      background-color: purple;
+      color: white;
+      padding: 20px; /* Ajouter de l'espace autour du texte */
+      text-align: center; /* Centrer le texte horizontalement */
+      min-height: 250px; /* Hauteur minimale de 350px */
+      margin-top: 5em;
+    }
+    .input-container {
+      display: block; /* Fait en sorte que l'ensemble soit un bloc pour occuper toute la largeur disponible */
+      width: 100%; /* Prend 100% de la largeur disponible */
+    }
+    
+    .input-container label {
+      display: block; /* Fait en sorte que le label soit affiché en tant que bloc (au-dessus du textarea) */
+    }
+    
+    .input-container textarea {
+      width: 100%; /* Prend 100% de la largeur du conteneur */
+    }
