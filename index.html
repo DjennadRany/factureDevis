@@ -105,6 +105,31 @@
 
     <br>
 
+    <!-- Tableau pour le Montant Total HT, Montant TVA, et Montant Total TTC -->
+<table class="table table-bordered">
+  <thead>
+      <tr>
+          <th></th>
+          <th>Montant</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td> Total HT</td>
+          <td id="montantTotalHT">0 €</td>
+      </tr>
+      <tr>
+          <td> TVA (<span id="tvaPercentage">19.5</span>%)</td>
+          <td id="montantTVA">0 €</td>
+      </tr>
+      <tr>
+          <td> Total TTC</td>
+          <td id="montantTotalTTC">0 €</td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
     <!-- Générer le document -->
     <button onclick="genererDocument()">Générer le document PDF</button>
   </div>
