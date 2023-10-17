@@ -232,7 +232,7 @@ function genererDocument() {
                                     widths: '30%',
                                 },
                                 {
-                                    text: produit.prix + " €",
+                                    text: produit.prix + "€",
                                     margin: [0, 10],
                                     fontSize:11,
                                     widths: '30%',
