@@ -32,10 +32,10 @@ Aucune exigence particulière n'est nécessaire pour exécuter cette application
    1. Ouvrez le fichier index.html dans un navigateur web.
    2. Remplissez les détails de l'entreprise, du client, ajoutez des produits et générez une facture au format PDF.
 
-3.Crédits :
+## Crédits :
    pdfMake - Bibliothèque JavaScript pour la génération de PDF dans le navigateur.
 
-4.Licence
+## Licence
    Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
 
 
