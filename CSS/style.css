@@ -1,73 +1,199 @@
+/* Style pour le formulaire */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header {
-  background-color: #0b0080;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 2em;
-}
-
-input[type="text"],
-input[type="file"] {
-  width: 90%; /* Prend 90% de la largeur */
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  background-color: #d5004d;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-right: 1em;
-}
-
-button:hover {
-  background-color: #b40041;
-}
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-label {
-  color: #000;
-  margin-bottom: 5px;
-}
-
-@media (max-width: 768px) {
-  /* Ajoutez des styles spécifiques pour les écrans mobiles ici */
-  input[type="text"],
-  input[type="file"] {
-    width: 100%;
+    background-color: #fff; /* Fond blanc */
   }
-  .input-container {
+  
+  h2, h3 {
+    color: #000; /* Couleur du texte */
+  }
+  
+  #conteneur-formulaire {
+    width: 80%; /* Largeur du conteneur à 80% */
+    margin: 0 auto; /* Centrer horizontalement */
+    padding: 20px;
+    background-color: #fff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ombre légère */
+  }
+  
+  /* Style pour les champs d'entrée */
+  input[type="text"], input[type="file"] {
+    width: 100%; /* Largeur à 100% */
+    padding: 10px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style pour les boutons */
+  button {
+    background-color: #d5004d; /* Couleur de fond orange */
+    color: #fff; /* Couleur du texte blanc */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 1em!important;
+  }
+  
+  button:hover {
+    background-color: #b40041; /* Couleur de fond orange foncé au survol */
+  }
+  
+  /* Style pour les cartes graphiques */
+  #logoEntreprise, #logo {
+    background-color: #fff;
+    border: 3px solid #d5004d;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-style: dashed;
+    width: 50%;
+    display: block;
+    padding: 2em;
+    display: block;
+   
+  }
+  input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #d5004d;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+  /* Style pour les titres */
+  h2, h3 {
+    color: #000; /* Couleur du texte */
+  }
+  
+  /* Style pour les étiquettes des radios et checkboxes */
+  label {
+    color: #000; /* Couleur du texte */
+  }
+  
+  /* Style pour les radios et checkboxes */
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /* Style pour la bordure du tableau */
+  table {
+    border: 1px solid #000;
+  }
+  
+  /* Style pour les cellules du tableau */
+  th, td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+  }
+  
+
+    /* Style pour le carré avec un contour gris */
+    .square {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #ccc; /* Contour gris */
+      position: relative;
+    }
+
+    /* Style pour le cercle bleu */
+    .circle {
+      width: 36px;
+      height: 36px;
+      background-color: #00e0ff; /* Couleur de fond bleue */
+      border-radius: 50%; /* Forme de cercle */
+      position: absolute;
+      top: 2px; /* Ajuster la position verticale */
+      left: 2px; /* Ajuster la position horizontale */
+    }
+
+    /* Style pour la croix blanche */
+    .cross {
+      width: 100%;
+      height: 2px;
+      background-color: #fff; /* Couleur blanche */
+      position: absolute;
+      top: 50%; /* Centrer verticalement */
+      left: 0;
+      transform: translate(0, -50%); /* Ajuster verticalement */
+    }
+
+    .header {
+      background-color: #0b0080;
+    color: #fff!important;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 5em;
+    }
+    footer {
+      background-color: #0b0080;
+      color: white;
+      padding: 20px; /* Ajouter de l'espace autour du texte */
+      text-align: center; /* Centrer le texte horizontalement */
+      min-height: 250px; /* Hauteur minimale de 350px */
+      margin-top: 5em;
+    }
+    .input-container {
+      display: block; /* Fait en sorte que l'ensemble soit un bloc pour occuper toute la largeur disponible */
+      width: 100%; /* Prend 100% de la largeur disponible */
+    }
+    
+    .input-container label {
+      display: block; /* Fait en sorte que le label soit affiché en tant que bloc (au-dessus du textarea) */
+    }
+    
+    .input-container textarea {
+      width: 100%; /* Prend 100% de la largeur du conteneur */
+    }
+
+
+    /* Style de base pour les écrans larges (desktop) */
+
+/* ... Vos styles précédents ... */
+
+/* Styles pour les écrans de taille tablette et mobile */
+@media (max-width: 768px) {
+  /* Réduire la largeur du conteneur du formulaire pour s'adapter aux tablettes */
+  #conteneur-formulaire {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Réduire la taille de la police du titre pour les tablettes */
+  h2 {
+    font-size: 24px;
+  }
+
+  /* Ajuster la largeur du logo pour les tablettes */
+  #logo {
+    width: 100%;
+    max-width: 200px; /* Limitation de la largeur maximale */
+    display: block;
+    margin: 0 auto; /* Centrer horizontalement */
+  }
+
+  /* Ajuster la largeur des champs d'entrée pour les tablettes */
+  input[type="text"], input[type="file"] {
+    width: 100%;
+    padding: 8px; /* Réduire la hauteur des champs pour économiser de l'espace */
+  }
+}
+
+/* Styles pour les écrans mobiles (smartphones) */
+@media (max-width: 480px) {
+  /* Réduire encore la taille de la police du titre pour les mobiles */
+  h2 {
+    font-size: 20px;
+  }
+
+  /* Ajuster la largeur des champs d'entrée pour les mobiles */
+  input[type="text"], input[type="file"] {
+    width: 100%;
+    padding: 6px; /* Réduire encore la hauteur des champs */
   }
 }
