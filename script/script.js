@@ -1762,4 +1762,20 @@
       }
     });
   })();
+
+  // =========================================================
+  // Test hooks (only when enabled)
+  // =========================================================
+  if (window.__hexaFactTest) {
+    window.__hexaFactDebug = {
+      computeTotals: () => computeTotals(),
+      validate: () => validateState(),
+      buildPdfDefinition: (final = false) => buildPdfDefinition({ final }),
+      getState: () => state,
+      setState: (nextState) => {
+        state = nextState;
+        renderAll();
+      }
+    };
+  }
   
