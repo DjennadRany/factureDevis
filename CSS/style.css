@@ -21,12 +21,35 @@
 .brand-logo{
   height: 86px;
   width: auto;
+  object-fit: contain;
   filter: saturate(0.9);
 }
 .brand-title{
   letter-spacing: .08em;
   font-family: "Marianne", "Marianne-Regular", "Marianne-Bold", "Garamond", "Times New Roman", serif;
   font-weight: 700;
+}
+
+.header-brand{
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.header-slogan-row{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.header-actions-wrapper{
+  margin-left: auto;
+  position: relative;
+}
+
+.header-actions-panel{
+  display: flex;
+  gap: .5rem;
 }
 
 .app-header .btn-light{
@@ -42,6 +65,71 @@
 .app-header .btn-outline-light:focus{
   background: rgba(0,0,0,.04);
   color: #1b1b1b;
+}
+
+.header-menu-btn{
+  display: none;
+}
+
+@media (max-width: 768px){
+  .app-header .container{
+    flex-wrap: wrap;
+  }
+  .header-brand{
+    gap: .2rem;
+    width: 100%;
+    align-items: center;
+  }
+  .brand-logo{
+    width: 68%;
+    max-width: 240px;
+    min-width: 150px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .brand-title{
+    text-align: center;
+  }
+  .header-slogan-row{
+    width: 100%;
+    justify-content: space-between;
+  }
+  .header-actions-wrapper{
+    width: 100%;
+    margin-left: 0;
+  }
+  .header-menu-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,.2);
+  }
+  .header-actions-panel{
+    display: none;
+    position: static;
+    width: 100%;
+    margin-top: .75rem;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: .75rem;
+    padding: .5rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+    flex-direction: column;
+    gap: .5rem;
+    min-width: 0;
+    z-index: 1001;
+  }
+  .header-actions-panel.show{
+    display: flex;
+  }
+  .header-actions-panel .btn{
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .wizard .wizard-steps{
