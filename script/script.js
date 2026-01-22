@@ -226,6 +226,20 @@
   function safeText(s) {
     return (s ?? "").toString().trim();
   }
+
+  function safePdfText(s) {
+    return safeText(s)
+      .replace(/\u00A0/g, " ")
+      .replace(/\u202F/g, " ")
+      .replace(/[“”]/g, "\"")
+      .replace(/[’]/g, "'")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function formatEuro(cents) {
+    return euro.format(cents / 100).replace(/\u00A0|\u202F/g, " ");
+  }
   
   function yearFromIssueDate() {
     const d = state.doc.issueDate || "";
@@ -922,25 +936,26 @@
     const { totalHT, totalTVA, totalTTC, vatByRate } = computeTotals();
   
     const sellerLines = [
-      safeText(state.seller.name),
-      safeText(state.seller.address),
-      `${safeText(state.seller.zip)} ${safeText(state.seller.city)}`.trim(),
-      `SIRET : ${safeText(state.seller.siret)}`
+      safePdfText(state.seller.name),
+      safePdfText(state.seller.address),
+      `${safePdfText(state.seller.zip)} ${safePdfText(state.seller.city)}`.trim(),
+      `SIRET : ${safePdfText(state.seller.siret)}`
     ].filter(Boolean);
   
-    if (state.doc.vatMode === "assujetti" && safeText(state.seller.vatNumber)) {
-      sellerLines.push(`TVA : ${safeText(state.seller.vatNumber)}`);
+    if (state.doc.vatMode === "assujetti" && safePdfText(state.seller.vatNumber)) {
+      sellerLines.push(`TVA : ${safePdfText(state.seller.vatNumber)}`);
     }
   
     const clientLines = [
-      safeText(state.client.name),
-      safeText(state.client.address),
-      `${safeText(state.client.zip)} ${safeText(state.client.city)}`.trim(),
+      safePdfText(state.client.name),
+      safePdfText(state.client.address),
+      `${safePdfText(state.client.zip)} ${safePdfText(state.client.city)}`.trim(),
     ].filter(Boolean);
   
     if (state.doc.clientType === "pro") {
-      clientLines.push(`SIREN : ${safeText(state.client.siren)}`);
+      clientLines.push(`SIREN : ${safePdfText(state.client.siren)}`);
     }
+
   
     const itemsBody = [
       [
@@ -955,68 +970,65 @@
   
     state.items.forEach(it => {
       const lineHT = computeLineHTCents(it);
+      const title = safePdfText(it.title);
+      const desc = safePdfText(it.desc);
+      const label = desc ? `${title} — ${desc}` : title;
+
       const row = [
-        safeText(it.ref),
-        {
-          stack: [
-            { text: safeText(it.title), bold: true },
-            safeText(it.desc) ? { text: safeText(it.desc), fontSize: 9, color: "#555" } : {}
-          ]
-        },
+        safePdfText(it.ref),
+        { text: label, bold: true },
         { text: formatNumber(it.qty), alignment: "right" },
-        { text: euro.format(it.unitPriceHTCents / 100), alignment: "right" },
+        { text: formatEuro(it.unitPriceHTCents), alignment: "right" },
         ...(state.doc.vatMode === "assujetti" ? [{ text: formatPercent(it.vatRate), alignment: "right" }] : []),
-        { text: euro.format(lineHT / 100), alignment: "right" }
+        { text: formatEuro(lineHT), alignment: "right" }
       ];
       itemsBody.push(row);
     });
   
     const vatNote = (() => {
       if (state.doc.vatMode === "franchise") return "TVA non applicable, art. 293 B du CGI.";
-      if (state.doc.vatMode === "exonere") return safeText(state.doc.specialVatText) || "TVA : mention spéciale.";
+      if (state.doc.vatMode === "exonere") return safePdfText(state.doc.specialVatText) || "TVA : mention spéciale.";
       return "";
     })();
   
     const totalsStack = [
-      { columns: [{ text: "Total HT", width: "*" }, { text: euro.format(totalHT / 100), width: "auto", alignment: "right" }] }
+      { columns: [{ text: "Total HT", width: "*" }, { text: formatEuro(totalHT), width: "auto", alignment: "right" }] }
     ];
   
     if (state.doc.vatMode === "assujetti") {
       totalsStack.push(
-        { columns: [{ text: "TVA", width: "*" }, { text: euro.format(totalTVA / 100), width: "auto", alignment: "right" }] },
-        { columns: [{ text: "Total TTC", width: "*" }, { text: euro.format(totalTTC / 100), width: "auto", alignment: "right", bold: true }] }
+        { columns: [{ text: "TVA", width: "*" }, { text: formatEuro(totalTVA), width: "auto", alignment: "right" }] },
+        { columns: [{ text: "Total TTC", width: "*" }, { text: formatEuro(totalTTC), width: "auto", alignment: "right", bold: true }] }
       );
     } else {
       totalsStack.push(
-        { columns: [{ text: "Total TTC", width: "*" }, { text: euro.format(totalTTC / 100), width: "auto", alignment: "right", bold: true }] }
+        { columns: [{ text: "Total TTC", width: "*" }, { text: formatEuro(totalTTC), width: "auto", alignment: "right", bold: true }] }
       );
     }
   
     const extraConditions = [];
     if (state.doc.type === "devis") {
       extraConditions.push(
-        { text: `Validité : ${state.quote.validityDays} jour(s)`, margin: [0, 4, 0, 0] },
+        { text: `Validité : ${state.quote.validityDays} jour(s)`, margin: [0, 8, 0, 0] },
       );
       if (Number(state.quote.depositPct) > 0) {
-        extraConditions.push({ text: `Acompte : ${state.quote.depositPct}%`, margin: [0, 2, 0, 0] });
+        extraConditions.push({ text: `Acompte : ${state.quote.depositPct}%`, margin: [0, 4, 0, 0] });
       }
-      extraConditions.push({ text: safeText(state.quote.acceptanceText) || "Bon pour accord, date et signature", italics: true, margin: [0, 6, 0, 0] });
-      extraConditions.push({ text: "Signature : ____________________________", margin: [0, 4, 0, 0] });
     }
   
     if (state.doc.type === "facture") {
-      const due = safeText(state.invoice.dueDate);
+      const due = safePdfText(state.invoice.dueDate);
       if (due) extraConditions.push({ text: `Échéance : ${due}`, margin: [0, 4, 0, 0] });
       else extraConditions.push({ text: `Délai de paiement : ${state.invoice.paymentTermDays} jour(s)`, margin: [0, 4, 0, 0] });
   
-      if (safeText(state.invoice.paymentMethods)) {
-        extraConditions.push({ text: `Moyens de paiement : ${safeText(state.invoice.paymentMethods)}`, margin: [0, 2, 0, 0] });
+      if (safePdfText(state.invoice.paymentMethods)) {
+        extraConditions.push({ text: `Moyens de paiement : ${safePdfText(state.invoice.paymentMethods)}`, margin: [0, 2, 0, 0] });
       }
   
       if (state.doc.clientType === "pro") {
         extraConditions.push(
-          { text: `Pénalités de retard : ${safeText(state.invoice.latePenaltiesText) || "—"}`, margin: [0, 4, 0, 0] },
-          { text: safeText(state.invoice.b2bIndemnityText) || "Indemnité forfaitaire pour frais de recouvrement : 40 €.", margin: [0, 2, 0, 0] },
+          { text: `Pénalités de retard : ${safePdfText(state.invoice.latePenaltiesText) || "—"}`, margin: [0, 4, 0, 0] },
+          { text: safePdfText(state.invoice.b2bIndemnityText) || "Indemnité forfaitaire pour frais de recouvrement : 40 €.", margin: [0, 2, 0, 0] },
         );
       }
     }
@@ -1024,13 +1036,14 @@
     const vatBreakdownText = (state.doc.vatMode === "assujetti" && vatByRate.size > 0)
       ? "Détail TVA : " + Array.from(vatByRate.entries())
         .sort((a, b) => a[0] - b[0])
-        .map(([rate, cents]) => `${rate.toString().replace(".", ",")}% = ${euro.format(cents / 100)}`)
+        .map(([rate, cents]) => `${rate.toString().replace(".", ",")}% = ${formatEuro(cents)}`)
         .join(" • ")
       : "";
   
     const watermark = final ? null : { text: "BROUILLON", color: "gray", opacity: 0.2, bold: true, italics: false };
   
     return {
+      pageMargins: [40, 40, 40, 70],
       watermark,
       content: [
         {
@@ -1050,16 +1063,28 @@
           ]
         },
   
-        { text: " ", margin: [0, 6] },
+        { text: " ", margin: [0, 10] },
   
         {
           columns: [
-            { stack: [{ text: "Vendeur", style: "h" }, { ul: sellerLines, margin: [0, 4, 0, 0] }] },
-            { stack: [{ text: "Client", style: "h" }, { ul: clientLines, margin: [0, 4, 0, 0] }] }
+            {
+              stack: [
+                { text: "Vendeur", style: "h" },
+                { text: sellerLines.join("\n"), margin: [0, 6, 0, 0], lineHeight: 1.2 }
+              ],
+              margin: [0, 0, 0, 6]
+            },
+            {
+              stack: [
+                { text: "Client", style: "h" },
+                { text: clientLines.join("\n"), margin: [0, 6, 0, 0], lineHeight: 1.2 }
+              ],
+              margin: [0, 0, 0, 6]
+            }
           ]
         },
   
-        { text: " ", margin: [0, 6] },
+        { text: " ", margin: [0, 10] },
   
         {
           table: {
@@ -1072,7 +1097,7 @@
           layout: "lightHorizontalLines"
         },
   
-        { text: " ", margin: [0, 6] },
+        { text: " ", margin: [0, 10] },
   
         {
           columns: [
@@ -1081,7 +1106,7 @@
               stack: [
                 vatNote ? { text: vatNote, italics: true, color: "#444" } : {},
                 vatBreakdownText ? { text: vatBreakdownText, fontSize: 9, color: "#555", margin: [0, 4, 0, 0] } : {},
-                state.notes ? { text: `Notes : ${state.notes}`, margin: [0, 6, 0, 0] } : {}
+                state.notes ? { text: `Notes : ${safePdfText(state.notes)}`, margin: [0, 6, 0, 0] } : {}
               ]
             },
             {
@@ -1092,9 +1117,20 @@
           ]
         },
   
-        { text: " ", margin: [0, 6] },
+        { text: " ", margin: [0, 10] },
         ...extraConditions
       ],
+      footer: (currentPage, pageCount) => {
+        if (state.doc.type !== "devis") return "";
+        const acceptance = safePdfText(state.quote.acceptanceText) || "Bon pour accord, date et signature";
+        return {
+          margin: [40, 0, 40, 20],
+          stack: [
+            { text: acceptance, italics: true, lineHeight: 1.2 },
+            { text: "Signature : ____________________________", margin: [0, 6, 0, 0] }
+          ]
+        };
+      },
       styles: {
         title: { fontSize: 20, bold: true },
         sub: { fontSize: 10, color: "#555" },
@@ -1167,15 +1203,20 @@
   }
   
   function saveDrafts(list) {
-    localStorage.setItem(LS_KEYS.drafts, JSON.stringify(list));
+    try {
+      localStorage.setItem(LS_KEYS.drafts, JSON.stringify(list));
+      return { ok: true };
+    } catch (err) {
+      return { ok: false, err };
+    }
   }
   
   function saveDraft() {
     const drafts = loadDrafts();
-  
+
     const stamp = new Date().toISOString();
     const id = crypto?.randomUUID?.() || `id_${Math.random().toString(16).slice(2)}`;
-  
+
     // If already has a draftId in state, update it
     const existingId = state._draftId;
     const payload = {
@@ -1184,14 +1225,31 @@
       title: buildDraftTitle(),
       data: state
     };
-  
+
     if (!existingId) state._draftId = payload.id;
-  
+
     const idx = drafts.findIndex(d => d.id === payload.id);
     if (idx >= 0) drafts[idx] = payload;
     else drafts.unshift(payload);
-  
-    saveDrafts(drafts);
+
+    let res = saveDrafts(drafts);
+    if (!res.ok) {
+      // Likely quota issue: retry without embedded logo
+      const sanitized = JSON.parse(JSON.stringify(payload));
+      if (sanitized?.data?.seller?.logoDataUrl) {
+        sanitized.data.seller.logoDataUrl = "";
+        const draftsSansLogo = drafts.map(d => d.id === payload.id ? sanitized : d);
+        res = saveDrafts(draftsSansLogo);
+        if (res.ok) {
+          renderSavedList();
+          alert("Brouillon sauvegardé (logo non enregistré : stockage local plein).");
+          return;
+        }
+      }
+      alert("Impossible de sauvegarder le brouillon (stockage local indisponible).");
+      return;
+    }
+
     renderSavedList();
     alert("Brouillon sauvegardé en local.");
   }
@@ -1677,5 +1735,31 @@
     } catch (e) {
       console.warn("Automations not initialized:", e);
     }
+  })();
+
+  // =========================================================
+  // Header mobile menu
+  // =========================================================
+  (function initHeaderMenu() {
+    const btn = document.getElementById("btnHeaderMenu");
+    const panel = document.getElementById("headerActions");
+    if (!btn || !panel) return;
+
+    const toggle = () => {
+      const isOpen = panel.classList.toggle("show");
+      btn.setAttribute("aria-expanded", String(isOpen));
+    };
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggle();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!panel.contains(e.target) && e.target !== btn) {
+        panel.classList.remove("show");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
   })();
   
