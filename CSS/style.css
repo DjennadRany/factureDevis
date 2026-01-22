@@ -4,9 +4,10 @@
 }
 
 .app-header{
-  background: #f7f3ea;
+  background: #ffffff;
   color: #1b1b1b;
   border-bottom: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
   position: relative;
 }
 .app-header::after{
