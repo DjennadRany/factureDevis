@@ -32,6 +32,27 @@ Aucune exigence particulière n'est nécessaire pour exécuter cette application
    1. Ouvrez le fichier index.html dans un navigateur web.
    2. Remplissez les détails de l'entreprise, du client, ajoutez des produits et générez une facture au format PDF.
 
+## Tests E2E (Playwright)
+
+### Prérequis
+- Node.js 18+
+
+### Installation
+```shell
+npm install
+npx playwright install
+```
+
+### Lancer les tests
+```shell
+npm run test:e2e
+```
+
+### Mode UI
+```shell
+npm run test:e2e:ui
+```
+
 ## Crédits :
    pdfMake - Bibliothèque JavaScript pour la génération de PDF dans le navigateur.
 
