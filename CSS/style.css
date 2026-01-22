@@ -19,8 +19,8 @@
 }
 
 .brand-logo{
-  height: 86px;
-  width: auto;
+  height: auto;
+  width: 25%;
   object-fit: contain;
   filter: saturate(0.9);
 }
@@ -81,7 +81,7 @@
     align-items: center;
   }
   .brand-logo{
-    width: 68%;
+    width: 25%;
     max-width: 240px;
     min-width: 150px;
     height: auto;
