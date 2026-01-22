@@ -1,6 +1,6 @@
-# Générateur de Factures Web
+# HexaFact — Générateur de Devis & Factures
 
-Ce générateur de factures web est une application simple qui vous permet de créer des factures au format PDF en utilisant JavaScript et la bibliothèque pdfMake. Vous pouvez ajouter des produits avec des détails tels que la référence, le titre, le prix et le descriptif, puis générer une facture au format PDF avec ces informations.
+HexaFact est une application simple qui vous permet de créer des devis et des factures au format PDF en utilisant JavaScript et la bibliothèque pdfMake. Vous pouvez ajouter des produits avec des détails tels que la référence, le titre, le prix et le descriptif, puis générer un document au format PDF avec ces informations.
 
 ## Caractéristiques
 
@@ -15,7 +15,7 @@ Ce générateur de factures web est une application simple qui vous permet de cr
 
 ## Configuration
 
-Le générateur de factures est configuré à l'aide de JavaScript. Vous pouvez personnaliser les styles, l'en-tête de l'entreprise et d'autres paramètres directement dans le code source.
+HexaFact est configuré à l'aide de JavaScript. Vous pouvez personnaliser les styles, l'en-tête de l'entreprise et d'autres paramètres directement dans le code source.
 
 ## Exigences
 

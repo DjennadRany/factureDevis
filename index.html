@@ -1,154 +1,548 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="fr">
 
 <head>
-  <title>Générateur de document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HexaFact — Devis & Factures</title>
+  <meta name="description" content="HexaFact est un générateur de devis et factures simple, rapide et conforme. Créez vos documents PDF, gérez clients et lignes, et exportez vos données." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <meta property="og:site_name" content="HexaFact" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HexaFact — Devis & Factures" />
+  <meta property="og:description" content="HexaFact est un générateur de devis et factures simple, rapide et conforme. Créez vos documents PDF et gérez vos clients." />
+  <meta property="og:image" content="https://example.com/asset/Logo_hexafact2.png" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HexaFact — Devis & Factures" />
+  <meta name="twitter:description" content="Générateur de devis et factures avec export PDF, simple et conforme." />
+  <meta name="twitter:image" content="https://example.com/asset/Logo_hexafact2.png" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="CSS/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoI‌​i6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2‌​MPK8M2HN" crossorigin‌​="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="icon" type="image/png" href="asset/Logo_hexafact2.png" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2G719YNZ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G2G719YNZ3');
+  </script>
 </head>
 
 <body>
-  <div class="header bg-purple " style="text-transform: uppercase;  text-shadow: 3px 3px 3px #d5004d;  font-weight: bold;">
-    <i class="bi bi-file-earmark-text" style="font-size: 6em;"></i>
-    <h1>Devis&factures générateur</h1>
-  </div>
-  <div class="container">
-    <!-- Informations sur l'entreprise -->
-    <h3>Informations sur l'entreprise</h3>
-    <label for="nomEntreprise">Nom de l'entreprise :</label>
-    <input type="text" id="nomEntreprise"><br>
+  <header class="app-header">
+    <div class="container py-4 d-flex align-items-center gap-3">
+      <img src="asset/Logo_hexafact2.png" alt="HexaFact" class="brand-logo">
+      <div>
+        <div class="h2 m-0 text-uppercase brand-title">HexaFact</div>
+        <div class="text-body-secondary">Devis & factures — conforme, rapide, guidée</div>
+      </div>
+      <div class="ms-auto d-flex gap-2">
+        <button id="btnNew" class="btn btn-light btn-sm"><i class="bi bi-plus-circle"></i> Nouveau</button>
+        <button id="btnSaveDraft" class="btn btn-outline-light btn-sm"><i class="bi bi-save2"></i> Sauver brouillon</button>
+      </div>
+    </div>
+  </header>
 
-    <label for="adresseEntreprise">Adresse de l'entreprise :</label>
-    <input type="text" id="adresseEntreprise"><br>
+  <main class="container my-4">
+    <!-- Bar / Wizard -->
+    <div class="wizard card shadow-sm mb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+          <div class="wizard-steps">
+            <button class="step-btn active" data-go="0"><span>1</span> Document</button>
+            <button class="step-btn" data-go="1"><span>2</span> Vendeur</button>
+            <button class="step-btn" data-go="2"><span>3</span> Client</button>
+            <button class="step-btn" data-go="3"><span>4</span> Lignes</button>
+            <button class="step-btn" data-go="4"><span>5</span> Conditions</button>
+            <button class="step-btn" data-go="5"><span>6</span> Aperçu</button>
+          </div>
 
-    <label for="codePostalEntreprise">Code postal de l'entreprise :</label>
-    <input type="text" id="codePostalEntreprise" pattern="[0-9]*"><br>
+          <div class="d-flex gap-2">
+            <button id="btnBack" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left"></i> Retour</button>
+            <button id="btnNext" class="btn btn-primary btn-sm">Suivant <i class="bi bi-arrow-right"></i></button>
+          </div>
+        </div>
 
-    <label for="villeEntreprise">Ville de l'entreprise :</label>
-    <input type="text" id="villeEntreprise"><br>
-
-    <!-- Logo de l'entreprise -->
-    <label for="logoEntreprise">Logo de l'entreprise :</label>
-    <input type="file" id="logoEntreprise"><br>
-
-    <label for="numeroSiret">Numéro de SIRET :</label>
-    <input type="text" id="numeroSiret" pattern="[0-9]*"><br>
-    <br>
-    <!-- Informations sur le client -->
-    <h3>Informations sur le client</h3>
-    <label for="nomClient">Nom du client :</label>
-    <input type="text" id="nomClient"><br>
-
-    <label for="adresseClient">Adresse du client :</label>
-    <input type="text" id="adresseClient"><br>
-
-    <label for="codePostalClient">Code postal du client :</label>
-    <input type="text" id="codePostalClient" pattern="[0-9]*"><br>
-
-    <label for="villeClient">Ville du client :</label>
-    <input type="text" id="villeClient"><br>
-
-    <!-- Autres informations sur le client -->
-    <label for="numeroSiretClient">Numéro de SIRET du client :</label>
-    <input type="text" id="numeroSiretClient" pattern="[0-9]*"><br>
-<br>
-    <!-- Choix du document (facture ou devis) et référence -->
-    <h3>Choix du document</h3>
-    <label for="facture">Facture</label>
-    <input type="radio" id="facture" name="typeDocument" value="facture">
-    <label for="devis">Devis</label>
-    <input type="radio" id="devis" name="typeDocument" value="devis"><br>
-
-    <label for="referenceDocument">Référence du document :</label>
-    <input type="text" id="referenceDocument"><br>
-
-    <label for="tva">Taux de TVA (%) :</label>
-    <input type="number" id="tva" name="tva" min="0" step="0.01" value="19.5" required>
-    
-    <br><br>
-    <!-- Produits -->
-    <h3>Produits</h3>
-    <label for="titreProduit">Titre du Produit :</label>
-    <input type="text" id="titreProduit"><br>
-
-    <label for="prix">Prix :</label>
-    <input type="text" id="prix" pattern="[0-9]*"><br>
-
-    <!-- Champ Référence ajouté -->
-    <label for="referenceProduit">Référence du produit :</label>
-    <input type="text" id="referenceProduit"><br>
-
-    <div class="input-container">
-      <label for="descriptif">Descriptif :</label>
-      <textarea id="descriptif"></textarea>
+        <div class="mt-3">
+          <div class="progress" role="progressbar" aria-label="Progression">
+            <div id="progressBar" class="progress-bar" style="width: 16.66%"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <button onclick="ajouterProduit()">Ajouter Produit</button><br><br>
-    <br>
-    <!-- Liste des Produits -->
-    <h3>Liste des Produits</h3>
-    <table style="width: 100%;">
-      <thead>
-        <tr>
-          <th>Référence</th>
-          <th>Titre du Produit</th>
-          <th>Prix</th>
-          <th>Descriptif</th>
-          <th>Actions</th> <!-- Colonne pour le bouton Supprimer -->
-        </tr>
-      </thead>
-      <tbody id="listeProduits">
-      </tbody>
-    </table>
+    <div class="row g-4">
+      <!-- Left: Form -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
 
-    <br>
+            <!-- STEP 0: Document -->
+            <section class="wizard-step" data-step="0">
+              <div class="d-flex align-items-center justify-content-between">
+                <h3 class="h5 m-0">Document</h3>
+                <span id="docBadge" class="badge text-bg-secondary">Brouillon</span>
+              </div>
 
-    <!-- Tableau pour le Montant Total HT, Montant TVA, et Montant Total TTC -->
-<table class="table table-bordered">
-  <thead>
-      <tr>
-          <th></th>
-          <th>Montant</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td> Total HT</td>
-          <td id="montantTotalHT">0 €</td>
-      </tr>
-      <tr>
-          <td> TVA (<span id="tvaPercentage">19.5</span>%)</td>
-          <td id="montantTVA">0 €</td>
-      </tr>
-      <tr>
-          <td> Total TTC</td>
-          <td id="montantTotalTTC">0 €</td>
-      </tr>
-  </tbody>
-</table>
+              <hr>
 
-<br>
-    <!-- Générer le document -->
-    <button onclick="genererDocument()">Générer le document PDF</button>
-  </div>
-  <footer>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Type de document</label>
+                  <div class="btn-group w-100" role="group">
+                    <input type="radio" class="btn-check" name="docType" id="docTypeDevis" value="devis" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="docTypeDevis"><i class="bi bi-clipboard-check"></i> Devis</label>
 
-    <table style="border: none;">
-      <tr>
-        <td>Site web produit par <a href="https://digitalayers.com/">Digitalayers</a></td>
-  
-      </tr>
-    </table>
-  </footer>
-  <script src="script/script.js"></script>
+                    <input type="radio" class="btn-check" name="docType" id="docTypeFacture" value="facture" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="docTypeFacture"><i class="bi bi-receipt"></i> Facture</label>
+                  </div>
+                  <div class="form-text">Le parcours s’adapte selon le type.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Référence interne (optionnel)</label>
+                  <input id="docReference" class="form-control" placeholder="Ex: PROJET-2026-01" />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Client</label>
+                  <div class="btn-group w-100" role="group">
+                    <input type="radio" class="btn-check" name="clientType" id="clientTypePro" value="pro" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="clientTypePro"><i class="bi bi-buildings"></i> Pro (B2B)</label>
+
+                    <input type="radio" class="btn-check" name="clientType" id="clientTypePart" value="particulier" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="clientTypePart"><i class="bi bi-person"></i> Particulier (B2C)</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">TVA</label>
+                  <select id="vatMode" class="form-select">
+                    <option value="assujetti">Assujetti TVA (taux par ligne)</option>
+                    <option value="franchise">Franchise en base (TVA non applicable)</option>
+                    <option value="exonere">Exonération / mention spéciale (manuel)</option>
+                  </select>
+                  <div class="form-text">
+                    En franchise, la TVA est à 0 et une mention est ajoutée automatiquement.
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Date d’émission</label>
+                  <input id="issueDate" type="date" class="form-control" />
+                </div>
+
+                <div class="col-md-6" id="wrapDocNumber">
+                  <label class="form-label">Numéro (auto à la validation)</label>
+                  <input id="docNumber" class="form-control" disabled placeholder="Ex: FAC-2026-0001" />
+                </div>
+
+                <div class="col-12" id="wrapSpecialVatText">
+                  <label class="form-label">Mention TVA spéciale (si exonéré / auto-liquidation, etc.)</label>
+                  <input id="specialVatText" class="form-control" placeholder="Ex: TVA exonérée - article ... / Autoliquidation ..." />
+                </div>
+              </div>
+            </section>
+
+            <!-- STEP 1: Seller -->
+            <section class="wizard-step d-none" data-step="1">
+              <h3 class="h5">Vendeur (Votre entreprise)</h3>
+              <hr>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nom / Raison sociale</label>
+                  <div class="input-group">
+                    <input id="sellerName" class="form-control" placeholder="Ex: Dupont Consulting" autocomplete="off" />
+                    <button id="btnSellerLookup" class="btn btn-outline-primary" type="button">
+                      <i class="bi bi-search"></i> Rechercher
+                    </button>
+                  </div>
+                  <div id="sellerLookupResults" class="lookup-results"></div>
+                  <div class="form-text">Recherche publique (raison sociale → SIREN/SIRET + adresse siège si dispo).</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">SIRET (14 chiffres)</label>
+                  <input id="sellerSiret" class="form-control" inputmode="numeric" placeholder="12345678901234" />
+                </div>
+
+                <div class="col-md-8">
+                  <label class="form-label">Adresse</label>
+                  <input id="sellerAddress" class="form-control" placeholder="12 rue Exemple" autocomplete="off" />
+                  <div id="sellerAddressResults" class="lookup-results"></div>
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label">Code postal</label>
+                  <input id="sellerZip" class="form-control" inputmode="numeric" placeholder="75000" />
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label">Ville</label>
+                  <input id="sellerCity" class="form-control" placeholder="Paris" />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Email (recommandé)</label>
+                  <input id="sellerEmail" class="form-control" type="email" placeholder="contact@..." />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Téléphone (optionnel)</label>
+                  <input id="sellerPhone" class="form-control" placeholder="+33 ..." />
+                </div>
+
+                <div class="col-md-6" id="wrapSellerVatNumber">
+                  <label class="form-label">N° TVA intracom (si assujetti)</label>
+                  <input id="sellerVatNumber" class="form-control" placeholder="FRxx..." />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Logo (optionnel)</label>
+                  <input id="sellerLogo" type="file" class="form-control" accept="image/*" />
+                  <div class="form-text">Le logo est stocké en local (base64) si tu sauvegardes le brouillon.</div>
+                </div>
+
+                <div class="col-12">
+                  <div class="alert alert-light border mb-0">
+                    <div class="fw-semibold"><i class="bi bi-shield-check"></i> Astuce</div>
+                    <div class="small text-muted">Le SIRET, l’adresse et l’identité doivent être présents sur le PDF final.</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- STEP 2: Client -->
+            <section class="wizard-step d-none" data-step="2">
+              <h3 class="h5">Client</h3>
+              <hr>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" id="clientNameLabel">Nom client / Société</label>
+                  <div class="input-group">
+                    <input id="clientName" class="form-control" placeholder="Ex: Société ABC / Jean Martin" autocomplete="off" />
+                    <button id="btnClientLookup" class="btn btn-outline-primary" type="button">
+                      <i class="bi bi-search"></i> Rechercher
+                    </button>
+                  </div>
+                  <div id="clientLookupResults" class="lookup-results"></div>
+                </div>
+
+                <div class="col-md-6" id="wrapClientSiren">
+                  <label class="form-label">SIREN client (9 chiffres) — B2B</label>
+                  <input id="clientSiren" class="form-control" inputmode="numeric" placeholder="123456789" />
+                </div>
+
+                <div class="col-md-8">
+                  <label class="form-label">Adresse</label>
+                  <input id="clientAddress" class="form-control" placeholder="34 avenue Exemple" autocomplete="off" />
+                  <div id="clientAddressResults" class="lookup-results"></div>
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label">Code postal</label>
+                  <input id="clientZip" class="form-control" inputmode="numeric" placeholder="69000" />
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label">Ville</label>
+                  <input id="clientCity" class="form-control" placeholder="Lyon" />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Email (optionnel)</label>
+                  <input id="clientEmail" class="form-control" type="email" placeholder="compta@..." />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Téléphone (optionnel)</label>
+                  <input id="clientPhone" class="form-control" placeholder="+33 ..." />
+                </div>
+              </div>
+            </section>
+
+            <!-- STEP 3: Items -->
+            <section class="wizard-step d-none" data-step="3">
+              <div class="d-flex align-items-center justify-content-between">
+                <h3 class="h5 m-0">Lignes (produits / services)</h3>
+                <button id="btnAddItem" class="btn btn-outline-primary btn-sm">
+                  <i class="bi bi-plus"></i> Ajouter une ligne
+                </button>
+              </div>
+              <hr>
+
+              <div class="row g-3 align-items-end">
+                <div class="col-md-3">
+                  <label class="form-label">Référence (option)</label>
+                  <input id="itemRef" class="form-control" placeholder="REF-001" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Libellé *</label>
+                  <input id="itemTitle" class="form-control" placeholder="Prestation / Produit" />
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label">Quantité</label>
+                  <input id="itemQty" class="form-control" inputmode="decimal" value="1" />
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Unité</label>
+                  <select id="itemUnit" class="form-select">
+                    <option value="u">Unité</option>
+                    <option value="h">Heure</option>
+                    <option value="j">Jour</option>
+                    <option value="forfait">Forfait</option>
+                    <option value="mois">Mois</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Description (option)</label>
+                  <input id="itemDesc" class="form-control" placeholder="Détails, périmètre..." />
+                </div>
+
+                <div class="col-md-3">
+                  <label class="form-label">Prix unitaire HT *</label>
+                  <input id="itemPriceHT" class="form-control" inputmode="decimal" placeholder="Ex: 1200,00" />
+                </div>
+
+                <div class="col-md-3" id="wrapItemVatRate">
+                  <label class="form-label">TVA</label>
+                  <select id="itemVatRate" class="form-select">
+                    <option value="20">20%</option>
+                    <option value="10">10%</option>
+                    <option value="5.5">5,5%</option>
+                    <option value="0">0%</option>
+                    <option value="custom">Personnalisé</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3 d-none" id="wrapCustomVatRate">
+                  <label class="form-label">TVA personnalisée (%)</label>
+                  <input id="customVatRate" class="form-control" inputmode="decimal" placeholder="Ex: 19,6" />
+                </div>
+
+                <div class="col-md-3">
+                  <label class="form-label">Remise ligne (%)</label>
+                  <input id="itemDiscount" class="form-control" inputmode="decimal" placeholder="0" value="0" />
+                </div>
+              </div>
+
+              <div class="mt-3 table-responsive">
+                <table class="table table-sm align-middle">
+                  <thead>
+                    <tr>
+                      <th>Réf</th>
+                      <th>Libellé</th>
+                      <th class="text-end">Qté</th>
+                      <th>Unité</th>
+                      <th class="text-end">PU HT</th>
+                      <th class="text-end" id="thVat">TVA</th>
+                      <th class="text-end">Total HT</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="itemsTbody">
+                    <tr class="text-muted">
+                      <td colspan="8">Aucune ligne pour l’instant.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- STEP 4: Conditions -->
+            <section class="wizard-step d-none" data-step="4">
+              <h3 class="h5">Conditions</h3>
+              <hr>
+
+              <!-- Devis-only -->
+              <div id="wrapQuoteFields" class="border rounded p-3 mb-3">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div class="fw-semibold"><i class="bi bi-clipboard-check"></i> Spécifique Devis</div>
+                  <span class="badge text-bg-light">Devis</span>
+                </div>
+
+                <div class="row g-3 mt-1">
+                  <div class="col-md-6">
+                    <label class="form-label">Validité (jours)</label>
+                    <input id="quoteValidityDays" class="form-control" inputmode="numeric" value="30" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Acompte (%) (optionnel)</label>
+                    <input id="quoteDepositPct" class="form-control" inputmode="decimal" value="0" />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Texte d’acceptation (optionnel)</label>
+                    <input id="quoteAcceptanceText" class="form-control"
+                      placeholder='Ex: "Bon pour accord, date et signature"' />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Facture-only -->
+              <div id="wrapInvoiceFields" class="border rounded p-3 mb-3">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div class="fw-semibold"><i class="bi bi-receipt"></i> Spécifique Facture</div>
+                  <span class="badge text-bg-light">Facture</span>
+                </div>
+
+                <div class="row g-3 mt-1">
+                  <div class="col-md-6">
+                    <label class="form-label">Échéance (date)</label>
+                    <input id="invoiceDueDate" type="date" class="form-control" />
+                    <div class="form-text">Option : si vide, tu peux utiliser un délai (ci-dessous).</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Délai de paiement (jours)</label>
+                    <input id="invoicePaymentTermDays" class="form-control" inputmode="numeric" value="30" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Pénalités de retard (texte)</label>
+                    <input id="latePenaltiesText" class="form-control" placeholder='Ex: "Pénalités: 3x taux légal..."' />
+                  </div>
+
+                  <div class="col-md-6" id="wrapB2BIndemnity">
+                    <label class="form-label">Indemnité forfaitaire recouvrement (B2B)</label>
+                    <input id="b2bIndemnityText" class="form-control" value="Indemnité forfaitaire pour frais de recouvrement : 40 €." />
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Moyens de paiement (optionnel)</label>
+                    <input id="paymentMethods" class="form-control" placeholder="Ex: Virement, chèque, espèces, CB..." />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label">Notes / Conditions générales (optionnel)</label>
+                  <textarea id="docNotes" class="form-control" rows="4"
+                    placeholder="Ex: délais, périmètre, modalités, adresse de livraison..."></textarea>
+                </div>
+              </div>
+            </section>
+
+            <!-- STEP 5: Preview -->
+            <section class="wizard-step d-none" data-step="5">
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <h3 class="h5 m-0">Aperçu & conformité</h3>
+                <div class="d-flex gap-2">
+                  <button id="btnExportJson" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-box-arrow-up"></i> Export JSON
+                  </button>
+                  <label class="btn btn-outline-secondary btn-sm mb-0">
+                    <i class="bi bi-box-arrow-in-down"></i> Import JSON
+                    <input id="importJsonFile" type="file" class="d-none" accept="application/json">
+                  </label>
+                </div>
+              </div>
+              <hr>
+
+              <div class="alert alert-warning d-none" id="validationAlert">
+                <div class="fw-semibold"><i class="bi bi-exclamation-triangle"></i> Champs manquants / incohérences</div>
+                <ul class="mb-0 mt-2" id="validationList"></ul>
+              </div>
+
+              <div class="alert alert-success d-none" id="validationOk">
+                <div class="fw-semibold"><i class="bi bi-check-circle"></i> OK — Prêt à générer le PDF final</div>
+                <div class="small text-muted">À la validation, un numéro est attribué et le document est verrouillé.</div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2">
+                <button id="btnGenerateDraftPdf" class="btn btn-outline-primary">
+                  <i class="bi bi-filetype-pdf"></i> PDF brouillon
+                </button>
+
+                <button id="btnValidateAndPdf" class="btn btn-primary" disabled>
+                  <i class="bi bi-shield-check"></i> Valider & PDF final
+                </button>
+
+                <button id="btnDuplicate" class="btn btn-outline-secondary">
+                  <i class="bi bi-files"></i> Dupliquer (brouillon)
+                </button>
+
+                <button id="btnConvertQuoteToInvoice" class="btn btn-outline-secondary d-none">
+                  <i class="bi bi-arrow-repeat"></i> Convertir devis → facture
+                </button>
+              </div>
+
+              <hr>
+
+              <div class="preview card bg-body-tertiary border-0">
+                <div class="card-body">
+                  <div id="previewText" class="small text-muted">L’aperçu se met à jour automatiquement.</div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Totals + Saved docs -->
+      <div class="col-lg-4">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h3 class="h6">Totaux</h3>
+            <table class="table table-sm mb-2">
+              <tbody>
+                <tr>
+                  <td>Total HT</td>
+                  <td class="text-end fw-semibold" id="totalHT">0,00 €</td>
+                </tr>
+                <tr id="rowTVA">
+                  <td>TVA</td>
+                  <td class="text-end fw-semibold" id="totalTVA">0,00 €</td>
+                </tr>
+                <tr>
+                  <td>Total TTC</td>
+                  <td class="text-end fw-semibold" id="totalTTC">0,00 €</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="small text-muted" id="vatSummary"></div>
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <h3 class="h6 m-0">Brouillons (local)</h3>
+              <button id="btnClearAll" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></button>
+            </div>
+            <hr>
+            <div id="savedList" class="vstack gap-2">
+              <div class="text-muted small">Aucun brouillon sauvegardé.</div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="mt-3 small text-muted">
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#" id="linkLegal" class="link-secondary">Mentions légales</a>
+            <a href="#" id="linkPrivacy" class="link-secondary">Confidentialité</a>
+            <a href="#" id="linkCookies" class="link-secondary">Cookies</a>
+            <a href="#" id="linkSupport" class="link-secondary">Support</a>
+          </div>
+          <div class="mt-2">
+            <span>HexaFact — liens à remplacer par tes pages.</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </main>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="script/script.js"></script>
 </body>
 
 </html>
