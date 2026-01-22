@@ -3,6 +3,21 @@
   --brand2:#d5004d;
 }
 
+html, body{
+  height: 100%;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main{
+  flex: 1 0 auto;
+}
+footer.site-footer{
+  flex-shrink: 0;
+}
+
 .app-header{
   background: #ffffff;
   color: #1b1b1b;
