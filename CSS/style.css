@@ -103,19 +103,24 @@ footer.site-footer{
     flex-wrap: wrap;
   }
   .header-brand{
-    gap: .6rem;
+    gap: .35rem;
     width: 100%;
     align-items: center;
+    flex-direction: column;
   }
   .brand-logo{
-    height: 44px;
-    width: auto;
+    height: auto;
+    width: 34%;
   }
   .brand-title{
-    text-align: left;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    height: 0;
   }
   .header-slogan-row{
-    width: auto;
+    width: 100%;
+    text-align: center;
   }
   .header-actions-wrapper{
     width: 100%;
@@ -361,5 +366,21 @@ footer.site-footer .footer-banner span{
   }
   .footer-banner{
     width: 100%;
+  }
+  .footer-links{
+    flex: unset;
+  }
+  .footer-banner{
+    flex: unset;
+  }
+  .footer-banner{
+    padding: .55rem .7rem;
+  }
+  .footer-banner img{
+    width: 24px;
+    height: 24px;
+  }
+  footer.site-footer{
+    padding: .9rem 0 1rem;
   }
 }
