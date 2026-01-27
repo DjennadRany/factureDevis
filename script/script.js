@@ -57,13 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const tocToggle = document.getElementById("tocToggle");
   const tocDrawer = document.getElementById("tocDrawer");
   if (tocToggle && tocDrawer) {
+    tocDrawer.setAttribute("hidden", "");
     tocToggle.addEventListener("click", () => {
       const isOpen = tocDrawer.classList.toggle("open");
+      if (isOpen) {
+        tocDrawer.removeAttribute("hidden");
+      } else {
+        tocDrawer.setAttribute("hidden", "");
+      }
       tocToggle.setAttribute("aria-expanded", String(isOpen));
     });
     tocDrawer.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         tocDrawer.classList.remove("open");
+        tocDrawer.setAttribute("hidden", "");
         tocToggle.setAttribute("aria-expanded", "false");
       });
     });
