@@ -3,40 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HexaFact — Facturation électronique 2026–2027 pour TPE (conformité)</title>
-  <meta name="description" content="Infrastructure de conformité réglementaire HexaFact pour les TPE face à la réforme de la facturation électronique 2026–2027." />
+  <title>HexaFact app — facturation électronique 2026 2027, TPE, conformité</title>
+  <meta name="description" content="HexaFact app propose une infrastructure de conformité pour les TPE face à la réforme de la facturation électronique 2026–2027 : cadre, obligations et impacts." />
   <link rel="canonical" href="https://djennadrany.github.io/factureDevis/ProjetHF.html" />
   <meta property="og:site_name" content="HexaFact" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="HexaFact — Conformité facturation électronique 2026–2027" />
-  <meta property="og:description" content="Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire 2026–2027." />
+  <meta property="og:title" content="HexaFact app — Conformité facturation électronique 2026–2027" />
+  <meta property="og:description" content="HexaFact app propose une infrastructure de conformité pour les TPE face à la réforme obligatoire 2026–2027 : cadre, obligations et impacts." />
   <meta property="og:url" content="https://djennadrany.github.io/factureDevis/ProjetHF.html" />
   <meta property="og:image" content="https://djennadrany.github.io/factureDevis/asset/LogoHexafact.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HexaFact — Conformité facturation électronique 2026–2027" />
-  <meta name="twitter:description" content="Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire 2026–2027." />
+  <meta name="twitter:title" content="HexaFact app — Conformité facturation électronique 2026–2027" />
+  <meta name="twitter:description" content="HexaFact app propose une infrastructure de conformité pour les TPE face à la réforme obligatoire 2026–2027 : cadre, obligations et impacts." />
   <meta name="twitter:image" content="https://djennadrany.github.io/factureDevis/asset/LogoHexafact.png" />
   <link rel="icon" type="image/png" href="asset/LogoHexafact.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=3">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="CSS/style.css?v=4">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Organization",
-          "name": "HexaFact",
+          "name": "HexaFact app",
           "url": "https://djennadrany.github.io/factureDevis/",
           "logo": "https://djennadrany.github.io/factureDevis/asset/LogoHexafact.png",
           "description": "Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire de la facturation électronique 2026–2027."
         },
         {
           "@type": "WebPage",
-          "name": "HexaFact — Facturation électronique 2026–2027 pour TPE",
+          "name": "HexaFact app — Facturation électronique 2026–2027 pour TPE",
           "url": "https://djennadrany.github.io/factureDevis/ProjetHF.html",
           "description": "Reconstruction web premium du document de conformité HexaFact pour la réforme de la facturation électronique 2026–2027."
         }
@@ -45,20 +45,23 @@
   </script>
 </head>
 <body class="projet-hf">
-  <header class="hf-header">
-    <div class="hf-header-inner">
-      <div class="hf-logo">
-        <img src="asset/LogoHexafact.png" alt="Logo HexaFact" loading="lazy" />
+  <header class="app-header">
+    <div class="container py-4 d-flex align-items-center gap-3">
+      <div class="header-brand">
+        <img src="asset/LogoHexafact.png" alt="HexaFact" class="brand-logo" loading="lazy">
+        <div class="header-text">
+          <div class="h2 m-0 text-uppercase brand-title">HexaFact app</div>
+          <div class="text-body-secondary header-slogan-row">
+            <span>Facturation électronique 2026–2027</span>
+          </div>
+        </div>
       </div>
-      <div class="hf-title">
-        <strong>HexaFact — Infrastructure de conformité</strong>
-        <span>Facturation électronique 2026–2027</span>
-      </div>
-      <div class="hf-actions">
-        <a class="btn-hf" aria-label="Retour vers l'application" href="https://djennadrany.github.io/factureDevis/">
-          <i class="bi bi-arrow-left"></i> ← Retour
-        </a>
-        <a class="btn-hf primary" href="https://djennadrany.github.io/factureDevis/">Ouvrir l’app</a>
+      <div class="ms-auto header-actions-wrapper">
+        <div class="header-actions-panel">
+          <a class="btn btn-outline-secondary btn-sm" aria-label="Retour vers l'application" href="https://djennadrany.github.io/factureDevis/">
+            <i class="bi bi-arrow-left"></i> ← Retour
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -66,10 +69,8 @@
   <main class="container-hf">
     <section class="hero glass-card reveal">
       <div>
-        <div class="hero-logo">
-          <img src="asset/LogoHexafact.png" alt="Logo HexaFact" loading="lazy" />
-        </div>
-        <h1>HexaFact : Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire de la facturation électronique 2026–2027</h1>
+        <h1>HexaFact app</h1>
+        <p class="hero-subtitle">HexaFact : Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire de la facturation électronique 2026–2027</p>
         <div class="badges">
           <span class="badge-hf">TPE</span>
           <span class="badge-hf">e-invoicing</span>
@@ -77,15 +78,23 @@
           <span class="badge-hf">2026–2027</span>
         </div>
         <a class="btn-hf primary hero-cta" href="https://djennadrany.github.io/factureDevis/">Ouvrir l’app</a>
-        <div class="callout info">
-          <strong><i class="bi bi-link-45deg"></i> Démo :</strong>
-          <a href="https://djennadrany.github.io/factureDevis/">https://djennadrany.github.io/factureDevis/</a>
-        </div>
         <div class="kpis">
-          <div class="kpi-card"><strong>&gt; 90 %</strong>du tissu économique français = TPE</div>
-          <div class="kpi-card"><strong>2026–2027</strong>généralisation progressive</div>
-          <div class="kpi-card"><strong>60 000 à 80 000 €</strong>subvention non remboursable</div>
-          <div class="kpi-card"><strong>5 axes</strong>d’affectation des moyens</div>
+          <div class="kpi-card">
+            <strong><span class="kpi-number" data-count="90" data-prefix="> " data-suffix=" %">> 90 %</span></strong>
+            du tissu économique français = TPE
+          </div>
+          <div class="kpi-card">
+            <strong><span class="kpi-number" data-skip="true">2026–2027</span></strong>
+            généralisation progressive
+          </div>
+          <div class="kpi-card">
+            <strong><span class="kpi-number" data-skip="true">60 000 à 80 000 €</span></strong>
+            subvention non remboursable
+          </div>
+          <div class="kpi-card">
+            <strong><span class="kpi-number" data-count="5" data-suffix=" axes">5 axes</span></strong>
+            d’affectation des moyens
+          </div>
         </div>
       </div>
       <div class="glass-card">
@@ -141,11 +150,11 @@
           <div class="callout info">
             <strong><i class="bi bi-calendar-event"></i> Calendrier 2026–2027</strong>
             <div class="timeline">
-              <div class="timeline-item">
+            <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div><strong>2026</strong> — calendrier échelonné entre 2026 et 2027.</div>
-              </div>
-              <div class="timeline-item">
+            </div>
+            <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div><strong>2027</strong> — calendrier échelonné entre 2026 et 2027.</div>
               </div>
@@ -160,7 +169,7 @@
           <div class="callout info">
             <strong><i class="bi bi-cloud-check"></i> Exigences techniques</strong>
             <p>Les factures devront transiter par des plateformes de dématérialisation répondant à des exigences techniques, fonctionnelles et de sécurité strictement encadrées par l’État.</p>
-          </div>
+        </div>
           <h3>Objectifs poursuivis par la réforme</h3>
           <p>La réforme de la facturation électronique poursuit plusieurs objectifs d’intérêt général clairement identifiés par les pouvoirs publics :</p>
           <ul>
@@ -185,17 +194,17 @@
           <div class="callout warning">
             <strong><i class="bi bi-exclamation-triangle"></i> Enjeux de conformité et de sanctions</strong>
             <p>Le non-respect des obligations liées à la facturation électronique expose les entreprises à :</p>
-            <ul>
+            <ul class="list-alert">
               <li>des sanctions financières prévues par le cadre réglementaire,</li>
               <li>des risques de non-conformité administrative,</li>
               <li>des difficultés dans leurs relations commerciales et fiscales.</li>
-            </ul>
-          </div>
+        </ul>
+      </div>
           <p>La mise en conformité constitue donc un enjeu majeur pour l’ensemble du tissu économique, et en particulier pour les très petites entreprises, qui disposent de marges de manœuvre limitées pour absorber ces nouvelles contraintes.</p>
-        </section>
+    </section>
 
         <section id="section-2" class="section-block glass-card reveal" data-section>
-          <h2><i class="bi bi-exclamation-triangle"></i> 2. Problème structurel identifié</h2>
+      <h2><i class="bi bi-exclamation-triangle"></i> 2. Problème structurel identifié</h2>
           <p>Les très petites entreprises (TPE) représentent plus de 90 % du tissu économique français et constituent un maillon essentiel de l’économie nationale. Elles sont cependant la catégorie d’entreprises la plus exposée aux difficultés d’application de la réforme de la facturation électronique.</p>
           <p>Contrairement aux entreprises de taille intermédiaire ou aux grandes structures, les TPE disposent de marges organisationnelles, financières et techniques très limitées. Une part significative d’entre elles ne dispose pas :</p>
           <ul>
@@ -217,7 +226,7 @@
           <h3>Risque systémique de non-conformité</h3>
           <p>L’absence de solutions adaptées et accessibles fait émerger un risque systémique de non-conformité des TPE face à la réforme de la facturation électronique.</p>
           <p>Ce risque se traduit par :</p>
-          <ul>
+          <ul class="list-alert">
             <li>une probabilité élevée de retard ou d’échec dans la mise en conformité,</li>
             <li>une exposition accrue aux sanctions administratives et financières,</li>
             <li>une application hétérogène de la réforme selon les territoires et les secteurs,</li>
@@ -227,21 +236,21 @@
           <h3>Enjeu de politique publique</h3>
           <p>Le problème identifié dépasse le cadre d’une difficulté individuelle ou sectorielle. Il s’agit d’un enjeu structurel qui conditionne la réussite globale de la réforme.</p>
           <p>Sans action ciblée en direction des TPE, la réforme de la facturation électronique comporte un risque réel de :</p>
-          <ul>
+          <ul class="list-alert">
             <li>creuser la fracture numérique,</li>
             <li>accentuer les inégalités d’accès à la conformité réglementaire,</li>
             <li>générer des coûts indirects supplémentaires pour l’administration liés au contrôle et à la gestion des situations de non-conformité.</li>
           </ul>
           <p>La problématique identifiée appelle donc une réponse adaptée, structurée et accessible, relevant pleinement de l’intérêt général.</p>
-        </section>
+    </section>
 
         <section id="section-3" class="section-block glass-card reveal" data-section>
           <!-- PDF p4 -->
-          <h2><i class="bi bi-shield-check"></i> 3. Enjeux d’intérêt public</h2>
+      <h2><i class="bi bi-shield-check"></i> 3. Enjeux d’intérêt public</h2>
           <p>L’absence de solutions accessibles, simples et conformes spécifiquement destinées aux très petites entreprises (TPE) fait peser des risques majeurs sur la mise en œuvre effective de la réforme de la facturation électronique et, plus largement, sur l’atteinte des objectifs d’intérêt général poursuivis par l’État.</p>
           <h3>Risques opérationnels et administratifs</h3>
           <p>En l’absence d’outils adaptés aux contraintes des TPE, plusieurs dérives structurelles sont susceptibles d’apparaître :</p>
-          <ul>
+          <ul class="list-alert">
             <li>multiplication des situations de non-conformité involontaire,</li>
             <li>exposition accrue des TPE aux sanctions financières prévues par le cadre réglementaire,</li>
             <li>augmentation des contentieux et des situations de régularisation tardive,</li>
@@ -251,7 +260,7 @@
           <h3>Aggravation de la fracture numérique</h3>
           <p>La réforme de la facturation électronique, bien qu’indispensable, introduit un saut technologique significatif pour les entreprises les plus petites.</p>
           <p>Sans accompagnement et sans solutions accessibles :</p>
-          <ul>
+          <ul class="list-alert">
             <li>la fracture numérique existante entre entreprises se creuse,</li>
             <li>les TPE les moins outillées se trouvent durablement pénalisées,</li>
             <li>une partie du tissu économique risque d’être exclue des bénéfices attendus de la réforme.</li>
@@ -260,14 +269,14 @@
           <h3>Dépendance accrue à des plateformes privées</h3>
           <p>En l’absence d’alternatives accessibles, les TPE se trouvent contraintes de recourir à des solutions privées souvent :</p>
           <!-- PDF p5 -->
-          <ul>
+          <ul class="list-alert">
             <li>coûteuses,</li>
             <li>techniquement complexes,</li>
             <li>fondées sur des modèles économiques fermés,</li>
             <li>génératrices de dépendance à long terme vis-à-vis des éditeurs.</li>
           </ul>
           <p>Cette situation pose plusieurs enjeux :</p>
-          <ul>
+          <ul class="list-alert">
             <li>limitation du libre choix des entreprises,</li>
             <li>captation de la conformité réglementaire par des acteurs privés,</li>
             <li>fragilisation de la souveraineté numérique,</li>
@@ -275,7 +284,7 @@
           </ul>
           <h3>Inégalités économiques et territoriales</h3>
           <p>Le manque de solutions adaptées accentue les inégalités :</p>
-          <ul>
+          <ul class="list-alert">
             <li>entre entreprises selon leur taille,</li>
             <li>entre territoires selon leur niveau d’accompagnement,</li>
             <li>entre secteurs économiques.</li>
@@ -308,10 +317,10 @@
             <li>les politiques publiques de transformation numérique et d’inclusion économique.</li>
           </ul>
           <p>La facturation électronique est ainsi identifiée comme un levier stratégique, dont la réussite dépend directement de l’accessibilité des outils proposés à l’ensemble du tissu économique.</p>
-        </section>
+    </section>
 
         <section id="section-4" class="section-block glass-card reveal" data-section>
-          <h2><i class="bi bi-box"></i> 4. Solution proposée : HexaFact</h2>
+      <h2><i class="bi bi-box"></i> 4. Solution proposée : HexaFact</h2>
           <p>HexaFact est une infrastructure logicielle de conformité réglementaire, conçue spécifiquement pour répondre aux contraintes opérationnelles, techniques et économiques des très petites entreprises dans le cadre de la réforme obligatoire de la facturation électronique.</p>
           <p>La solution a été pensée dès l’origine comme un outil de mise en conformité progressive, accessible à des utilisateurs non experts, et aligné avec les exigences réglementaires à venir.</p>
           <h3>Fonctionnalités opérationnelles actuelles</h3>
@@ -369,7 +378,7 @@
             <li>de sécuriser leurs pratiques administratives.</li>
           </ul>
           <p>À ce titre, HexaFact participe directement à la sécurisation de l’action publique, en facilitant l’application effective et équitable d’une réforme nationale majeure.</p>
-        </section>
+    </section>
 
         <section id="section-5" class="section-block glass-card reveal" data-section>
           <h2><i class="bi bi-compass"></i> 5. Caractère stratégique et alignement avec les politiques publiques</h2>
@@ -397,7 +406,7 @@
           <p>Cette approche s’inscrit dans une logique de protection du tissu économique local et de prévention des difficultés économiques.</p>
           <h3>Réduction des coûts futurs pour l’administration</h3>
           <p>La non-conformité généralisée des TPE entraînerait :</p>
-          <ul>
+          <ul class="list-alert">
             <li>une multiplication des contrôles,</li>
             <li>une augmentation des procédures de régularisation,</li>
             <li>un alourdissement des contentieux fiscaux,</li>
@@ -435,12 +444,12 @@
             <li>comme un outil d’accompagnement de l’action publique,</li>
             <li>comme une infrastructure de sécurisation réglementaire,</li>
             <li>comme un dispositif facilitant l’exécution concrète d’une réforme d’État.</li>
-          </ul>
+      </ul>
           <p>Ce positionnement justifie pleinement l’intervention d’un soutien public, non comme un financement d’innovation privée, mais comme un investissement au service de l’intérêt général.</p>
           <h3>Perspective d’adossement institutionnel</h3>
           <p>Compte tenu de la vocation d’intérêt général du projet et de son lien direct avec l’exécution d’une réforme nationale, HexaFact a vocation, à terme, à être adossé à un cadre institutionnel, que ce soit sous la forme d’un partenariat public, d’un portage par un organisme public ou parapublic, ou d’une intégration dans l’écosystème numérique de l’État.</p>
           <p>Cette perspective vise à garantir la neutralité de l’outil, son accessibilité universelle et sa pérennité, tout en évitant toute logique de captation commerciale de la conformité réglementaire.</p>
-        </section>
+    </section>
 
         <section id="section-6" class="section-block glass-card reveal" data-section>
           <h2><i class="bi bi-cash-coin"></i> 6. Objectifs du financement public sollicité et affectation des moyens</h2>
@@ -495,41 +504,41 @@
           <p>Objectif : tester l’infrastructure en conditions réelles avant généralisation.</p>
 
           <table class="budget-table" aria-label="Répartition prévisionnelle des dépenses">
-            <thead>
-              <tr>
-                <th>Poste</th>
-                <th>Objectif</th>
-                <th>Montant</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+        <thead>
+          <tr>
+            <th>Poste</th>
+            <th>Objectif</th>
+            <th>Montant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
                 <td>Finalisation de la conformité réglementaire</td>
                 <td>intégration complète des exigences liées à la facturation électronique (mentions, formats, structuration des données)</td>
-                <td>20 000 €</td>
-              </tr>
-              <tr>
+            <td>20 000 €</td>
+          </tr>
+          <tr>
                 <td>Renforcement de la robustesse technique et documentaire</td>
                 <td>stabilisation de l’infrastructure logicielle, amélioration de la fiabilité des traitements, formalisation de la documentation fonctionnelle et technique</td>
-                <td>15 000 €</td>
-              </tr>
-              <tr>
+            <td>15 000 €</td>
+          </tr>
+          <tr>
                 <td>Sécurisation de l’usage pour un public non expert</td>
                 <td>amélioration de l’ergonomie du parcours utilisateur, réduction des risques d’erreurs de saisie, intégration de mécanismes de contrôle et d’alerte</td>
-                <td>15 000 €</td>
-              </tr>
-              <tr>
+            <td>15 000 €</td>
+          </tr>
+          <tr>
                 <td>Traçabilité et fiabilité des processus</td>
                 <td>mise en place de mécanismes de traçabilité des opérations, fiabilisation des données produites, structuration des journaux de traitement</td>
-                <td>10 000 €</td>
-              </tr>
-              <tr>
+            <td>10 000 €</td>
+          </tr>
+          <tr>
                 <td>Déploiement pilote auprès des TPE</td>
                 <td>sélection d’un panel de TPE utilisatrices, accompagnement à l’usage, recueil de retours terrain, ajustements fonctionnels et techniques</td>
-                <td>10 000 à 20 000 €</td>
-              </tr>
-            </tbody>
-          </table>
+            <td>10 000 à 20 000 €</td>
+          </tr>
+        </tbody>
+      </table>
 
           <div class="budget-cards" aria-label="Répartition prévisionnelle des dépenses (mobile)">
             <div class="budget-card">
@@ -559,33 +568,33 @@
             </div>
           </div>
 
-          <div class="chart-grid">
+          <div class="chart-grid chart-animate">
             <div class="glass-card">
               <h3>Répartition budgétaire</h3>
               <div class="bars" aria-label="Bar chart budget">
                 <div class="bar-row">
-                  <span>Conformité réglementaire</span>
-                  <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
-                  <span>20 000 €</span>
-                </div>
+          <span>Conformité réglementaire</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
+          <span>20 000 €</span>
+        </div>
                 <div class="bar-row">
-                  <span>Robustesse & doc</span>
-                  <div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div>
-                  <span>15 000 €</span>
-                </div>
+          <span>Robustesse & doc</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div>
+          <span>15 000 €</span>
+        </div>
                 <div class="bar-row">
-                  <span>Sécurisation usage</span>
-                  <div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div>
-                  <span>15 000 €</span>
-                </div>
+          <span>Sécurisation usage</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div>
+          <span>15 000 €</span>
+        </div>
                 <div class="bar-row">
-                  <span>Traçabilité</span>
-                  <div class="bar-track"><div class="bar-fill" style="width: 20%"></div></div>
-                  <span>10 000 €</span>
-                </div>
+          <span>Traçabilité</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%"></div></div>
+          <span>10 000 €</span>
+        </div>
                 <div class="bar-row">
-                  <span>Déploiement pilote</span>
-                  <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
+          <span>Déploiement pilote</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
                   <span>10 000 à 20 000 €</span>
                 </div>
               </div>
@@ -606,14 +615,14 @@
                 <div class="step"><div class="step-index">4</div><div>Traçabilité et fiabilité des processus</div></div>
                 <div class="step"><div class="step-index">5</div><div>Déploiement pilote auprès des TPE</div></div>
               </div>
-            </div>
-          </div>
+        </div>
+      </div>
 
           <h3>6.3 Logique d’investissement public et retour attendu</h3>
           <div class="callout success">
             <strong><i class="bi bi-check-circle"></i> Investissement public préventif</strong>
             <p>Le financement sollicité doit être considéré comme un investissement public préventif, permettant :</p>
-          </div>
+      </div>
           <!-- PDF p13 -->
           <ul>
             <li>de réduire les coûts futurs liés aux contrôles, sanctions et régularisations,</li>
@@ -642,7 +651,7 @@
             <li>une réduction des inégalités territoriales,</li>
             <li>une meilleure efficacité globale de la politique publique de facturation électronique.</li>
           </ul>
-        </section>
+    </section>
 
         <section id="section-7" class="section-block glass-card reveal" data-section>
           <h2><i class="bi bi-file-text"></i> 7. Nature de la demande, cadre réglementaire et conditions d’instruction</h2>
@@ -713,12 +722,12 @@
             <li>la réduction des risques de non-conformité des TPE,</li>
             <li>la sécurisation de l’application d’une réforme nationale obligatoire,</li>
             <li>l’optimisation de l’efficacité de l’action publique.</li>
-          </ul>
+      </ul>
           <p>La demande ne poursuit aucun objectif de financement spéculatif ou commercial.</p>
-        </section>
+    </section>
 
         <section id="section-8" class="section-block glass-card reveal" data-section>
-          <h2><i class="bi bi-graph-up"></i> 8. Impact attendu</h2>
+      <h2><i class="bi bi-graph-up"></i> 8. Impact attendu</h2>
           <p>Le projet HexaFact vise à produire des impacts concrets, mesurables et directement liés aux objectifs poursuivis par la réforme obligatoire de la facturation électronique 2026–2027. Les résultats attendus concernent à la fois la conformité réglementaire des très petites entreprises, l’efficacité de l’action publique et la réduction des risques administratifs et économiques.</p>
           <h3>8.1 Amélioration du taux de conformité des TPE</h3>
           <p>L’impact principal attendu est l’amélioration significative du taux de conformité des très petites entreprises aux obligations de facturation électronique prévues par le cadre réglementaire en vigueur.</p>
@@ -810,10 +819,10 @@
             <li>d’indicateurs qualitatifs (retours utilisateurs, difficultés rencontrées),</li>
             <li>de tableaux de suivi transmis à l’organisme financeur si requis.</li>
           </ul>
-        </section>
+    </section>
 
         <section id="section-9" class="section-block glass-card reveal" data-section>
-          <h2><i class="bi bi-clipboard-check"></i> 9. État d’avancement du projet</h2>
+      <h2><i class="bi bi-clipboard-check"></i> 9. État d’avancement du projet</h2>
           <p>Le projet HexaFact est actuellement opérationnel à l’état de prototype fonctionnel, permettant la génération de devis et de factures structurées et conformes aux exigences légales en vigueur.</p>
           <p>À ce stade, l’outil démontre la faisabilité technique et fonctionnelle de l’infrastructure de conformité réglementaire proposée, ainsi que la pertinence de son positionnement au regard des besoins identifiés des très petites entreprises.</p>
           <h3>9.1 Fonctionnalités actuellement disponibles</h3>
@@ -827,7 +836,7 @@
           <p>Ces fonctionnalités constituent une base opérationnelle cohérente avec les exigences réglementaires actuelles.</p>
           <h3>9.2 Limites actuelles du projet</h3>
           <p>En l’absence d’accompagnement public, le projet présente à ce stade les limites suivantes :</p>
-          <ul>
+          <ul class="list-alert">
             <li>conformité partielle aux exigences futures de la réforme de la facturation électronique,</li>
             <!-- PDF p19 -->
             <li>absence d’intégration complète des dispositifs liés au e-invoicing et au e-reporting,</li>
@@ -866,15 +875,29 @@
     </section>
   </main>
 
-  <footer class="hf-footer">
-    <div>Généré avec HexaFact — <a href="https://djennadrany.github.io/factureDevis/">Ouvrir l’app</a></div>
-    <div class="footer-links">
-      <a href="#" aria-label="Mentions légales">Mentions légales</a>
-      <a href="#" aria-label="Contact">Contact</a>
-      <a href="ProjetHF.html">Projet HexaFact</a>
+  <footer class="site-footer" data-testid="site-footer">
+    <div class="container small text-muted footer-layout">
+      <div class="footer-links">
+        <div class="d-flex flex-wrap gap-2">
+          <a href="https://djennadrany.github.io/factureDevis/" class="link-secondary">HexaFact — Retour à l’app</a>
+          <a href="#" class="link-secondary">Mentions légales</a>
+          <a href="#" class="link-secondary">Confidentialité</a>
+          <a href="#" class="link-secondary">Cookies</a>
+          <a href="#" class="link-secondary">Support</a>
+          <a href="#" class="link-secondary">À propos</a>
+          <a href="#" class="link-secondary">Partenariats</a>
+        </div>
+      </div>
+      <div class="footer-banner">
+        <img src="asset/LogoHexafact.png" alt="HexaFact">
+        <div>
+          <a href="https://djennadrany.github.io/factureDevis/">Généré avec HexaFact — Ouvrir l’app</a>
+          <span>Retour à l’application HexaFact.</span>
+        </div>
+      </div>
     </div>
     <div class="back-top">
-      <button id="backToTop" class="btn-hf" aria-label="Retour en haut">
+      <button id="backToTop" class="btn btn-outline-light btn-sm" aria-label="Retour en haut">
         <i class="bi bi-arrow-up"></i> Retour en haut
       </button>
     </div>
@@ -886,7 +909,7 @@
   Confirmation : aucun passage omis
   -->
 
-  <script src="script.js?v=1"></script>
+  <script src="script/script.js?v=1"></script>
   <script src="script/tracking.min.js?v=2"></script>
 </body>
 </html>

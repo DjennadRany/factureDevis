@@ -76,4 +76,62 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
     });
   }
+
+  // Chart animations (trigger on view)
+  const chartBlocks = Array.from(document.querySelectorAll(".chart-animate"));
+  if (!reducedMotion && "IntersectionObserver" in window) {
+    const chartObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-active");
+            chartObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -15% 0px", threshold: 0.2 }
+    );
+    chartBlocks.forEach((block) => chartObserver.observe(block));
+  } else {
+    chartBlocks.forEach((block) => block.classList.add("is-active"));
+  }
+
+  // KPI count-up
+  const kpiNumbers = Array.from(document.querySelectorAll(".kpi-number"));
+  const animateKpi = (el) => {
+    if (el.dataset.animated === "true" || el.dataset.skip === "true") return;
+    const target = Number(el.dataset.count || "0");
+    const prefix = el.dataset.prefix || "";
+    const suffix = el.dataset.suffix || "";
+    const duration = 900;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const value = Math.round(target * progress);
+      el.textContent = `${prefix}${value.toLocaleString("fr-FR")}${suffix}`;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.dataset.animated = "true";
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  if (!reducedMotion && "IntersectionObserver" in window) {
+    const kpiObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateKpi(entry.target);
+            kpiObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -15% 0px", threshold: 0.3 }
+    );
+    kpiNumbers.forEach((el) => kpiObserver.observe(el));
+  } else {
+    kpiNumbers.forEach((el) => animateKpi(el));
+  }
 });
