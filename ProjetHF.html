@@ -3,1073 +3,890 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HexaFact — Infrastructure de conformité 2026–2027</title>
-  <meta name="description" content="HexaFact : infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire de la facturation électronique 2026–2027." />
+  <title>HexaFact — Facturation électronique 2026–2027 pour TPE (conformité)</title>
+  <meta name="description" content="Infrastructure de conformité réglementaire HexaFact pour les TPE face à la réforme de la facturation électronique 2026–2027." />
+  <link rel="canonical" href="https://djennadrany.github.io/factureDevis/ProjetHF.html" />
+  <meta property="og:site_name" content="HexaFact" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HexaFact — Conformité facturation électronique 2026–2027" />
+  <meta property="og:description" content="Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire 2026–2027." />
+  <meta property="og:url" content="https://djennadrany.github.io/factureDevis/ProjetHF.html" />
+  <meta property="og:image" content="https://djennadrany.github.io/factureDevis/asset/LogoHexafact.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HexaFact — Conformité facturation électronique 2026–2027" />
+  <meta name="twitter:description" content="Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire 2026–2027." />
+  <meta name="twitter:image" content="https://djennadrany.github.io/factureDevis/asset/LogoHexafact.png" />
+  <link rel="icon" type="image/png" href="asset/LogoHexafact.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f6f7fb;
-      --card: #ffffff;
-      --ink: #0f172a;
-      --muted: #4b5563;
-      --line: #e5e7eb;
-      --brand: #1f6feb;
-      --accent: #0ea5e9;
-      --warn: #f59e0b;
-      --ok: #16a34a;
-      --shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
-      --radius: 16px;
+  <link rel="stylesheet" href="CSS/style.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "HexaFact",
+          "url": "https://djennadrany.github.io/factureDevis/",
+          "logo": "https://djennadrany.github.io/factureDevis/asset/LogoHexafact.png",
+          "description": "Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire de la facturation électronique 2026–2027."
+        },
+        {
+          "@type": "WebPage",
+          "name": "HexaFact — Facturation électronique 2026–2027 pour TPE",
+          "url": "https://djennadrany.github.io/factureDevis/ProjetHF.html",
+          "description": "Reconstruction web premium du document de conformité HexaFact pour la réforme de la facturation électronique 2026–2027."
+        }
+      ]
     }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.6;
-    }
-
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(246, 247, 251, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .logo {
-      width: clamp(90px, 12vw, 140px);
-      height: clamp(90px, 12vw, 140px);
-      border-radius: 14px;
-      background: #ffffff;
-      border: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
-
-    .logo img {
-      width: 90%;
-      height: 90%;
-      object-fit: contain;
-    }
-
-    .hero-logo {
-      width: 30%;
-      min-width: 140px;
-      max-width: 220px;
-      padding: 12px;
-      border-radius: 18px;
-      background: #ffffff;
-      border: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-    }
-
-    .hero-logo img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .emoji {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.25em;
-    }
-
-    .header-title {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .header-title strong {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .header-title span {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    .header-actions {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .btn-primary {
-      background: var(--brand);
-      color: #fff;
-      border-color: var(--brand);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 28px 20px 80px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-      gap: 24px;
-      align-items: center;
-    }
-
-    .hero-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero h1 {
-      font-size: clamp(1.8rem, 2.2vw, 2.6rem);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      margin-top: 0;
-    }
-
-    .kpis {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .kpi {
-      background: #f8fafc;
-      border-radius: 14px;
-      padding: 16px;
-      border: 1px solid var(--line);
-    }
-
-    .kpi strong {
-      display: block;
-      font-size: 1.3rem;
-      margin-bottom: 4px;
-    }
-
-    .toc {
-      margin-top: 26px;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 20px;
-      border: 1px solid var(--line);
-    }
-
-    .toc h2 {
-      font-size: 1.1rem;
-      margin-top: 0;
-    }
-
-    .toc ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 8px 18px;
-    }
-
-    .section {
-      margin-top: 28px;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 26px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .section h2 {
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.4rem;
-    }
-
-    .section h3 {
-      margin-bottom: 6px;
-    }
-
-    .muted { color: var(--muted); }
-
-    .callout {
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 16px;
-      border: 1px solid transparent;
-    }
-
-    .callout.info {
-      background: #eef5ff;
-      border-color: #c7ddff;
-    }
-
-    .callout.warn {
-      background: #fff7ed;
-      border-color: #fcd34d;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .list {
-      margin: 12px 0 0;
-      padding-left: 18px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 26px 1fr;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .dot {
-      width: 14px;
-      height: 14px;
-      margin-top: 4px;
-      border-radius: 999px;
-      background: var(--accent);
-      border: 3px solid #dbeafe;
-    }
-
-    .bars {
-      display: grid;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .bar {
-      display: grid;
-      grid-template-columns: minmax(160px, 220px) 1fr auto;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .bar span:last-child {
-      white-space: nowrap;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .bar-track {
-      height: 10px;
-      background: #e2e8f0;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #2563eb, #38bdf8);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 0.95rem;
-    }
-
-    th, td {
-      text-align: left;
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--line);
-      vertical-align: top;
-    }
-
-    th { background: #f8fafc; }
-
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    footer .footer-links {
-      display: inline-flex;
-      gap: 16px;
-      margin-top: 6px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 920px) {
-      .hero { grid-template-columns: 1fr; }
-      .bar { grid-template-columns: 1fr; gap: 6px; }
-      .bar span:last-child { text-align: right; }
-    }
-  </style>
+  </script>
 </head>
-<body>
-  <header>
-    <div class="header-inner">
-      <div class="logo" aria-hidden="true">
-        <img src="asset/LogoHexafact.png" alt="Logo HexaFact" />
+<body class="projet-hf">
+  <header class="hf-header">
+    <div class="hf-header-inner">
+      <div class="hf-logo">
+        <img src="asset/LogoHexafact.png" alt="Logo HexaFact" loading="lazy" />
       </div>
-      <div class="header-title">
+      <div class="hf-title">
         <strong>HexaFact — Infrastructure de conformité</strong>
         <span>Facturation électronique 2026–2027</span>
       </div>
-      <div class="header-actions">
-        <a class="btn" aria-label="Retour vers l'application" href="https://djennadrany.github.io/factureDevis/">
-          <span class="emoji" aria-hidden="true">←</span> Retour
+      <div class="hf-actions">
+        <a class="btn-hf" aria-label="Retour vers l'application" href="https://djennadrany.github.io/factureDevis/">
+          <i class="bi bi-arrow-left"></i> ← Retour
         </a>
-        <a class="btn btn-primary" href="https://djennadrany.github.io/factureDevis/">Ouvrir la démo</a>
+        <a class="btn-hf primary" href="https://djennadrany.github.io/factureDevis/">Ouvrir l’app</a>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-card">
+  <main class="container-hf">
+    <section class="hero glass-card reveal">
+      <div>
         <div class="hero-logo">
-          <img src="asset/LogoHexafact.png" alt="Logo HexaFact" />
+          <img src="asset/LogoHexafact.png" alt="Logo HexaFact" loading="lazy" />
         </div>
-        <h1>Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire 2026–2027</h1>
-        <p>HexaFact est une infrastructure logicielle de conformité, conçue pour accompagner les très petites entreprises dans l’application progressive des obligations de facturation électronique et de e-reporting en France.</p>
-        <div class="kpis" aria-label="Indicateurs clés">
-          <div class="kpi">
-            <strong>&gt; 90%</strong>
-            <span class="muted">du tissu économique français = TPE</span>
-          </div>
-          <div class="kpi">
-            <strong>2026–2027</strong>
-            <span class="muted">généralisation progressive</span>
-          </div>
-          <div class="kpi">
-            <strong>60–80 k€</strong>
-            <span class="muted">subvention sollicitée</span>
-          </div>
-          <div class="kpi">
-            <strong>5 axes</strong>
-            <span class="muted">d’affectation des moyens</span>
-          </div>
+        <h1>HexaFact : Infrastructure de conformité réglementaire pour les TPE face à la réforme obligatoire de la facturation électronique 2026–2027</h1>
+        <div class="badges">
+          <span class="badge-hf">TPE</span>
+          <span class="badge-hf">e-invoicing</span>
+          <span class="badge-hf">e-reporting</span>
+          <span class="badge-hf">2026–2027</span>
         </div>
-      </div>
-      <div class="hero-card">
-        <h3>Démo et positionnement</h3>
-        <p><span class="emoji" aria-hidden="true">🔗</span> Démo : <a href="https://djennadrany.github.io/factureDevis/">https://djennadrany.github.io/factureDevis/</a></p>
-        <p class="muted">HexaFact se positionne comme une infrastructure d’intérêt général, alignée sur les objectifs publics de modernisation fiscale et d’inclusion numérique.</p>
+        <a class="btn-hf primary hero-cta" href="https://djennadrany.github.io/factureDevis/">Ouvrir l’app</a>
         <div class="callout info">
-          <strong><span class="emoji" aria-hidden="true">ℹ️</span> Formats réglementaires & e-reporting</strong>
-          <div class="muted">Émission, réception et transmission de données aux autorités via des plateformes conformes.</div>
+          <strong><i class="bi bi-link-45deg"></i> Démo :</strong>
+          <a href="https://djennadrany.github.io/factureDevis/">https://djennadrany.github.io/factureDevis/</a>
         </div>
+        <div class="kpis">
+          <div class="kpi-card"><strong>&gt; 90 %</strong>du tissu économique français = TPE</div>
+          <div class="kpi-card"><strong>2026–2027</strong>généralisation progressive</div>
+          <div class="kpi-card"><strong>60 000 à 80 000 €</strong>subvention non remboursable</div>
+          <div class="kpi-card"><strong>5 axes</strong>d’affectation des moyens</div>
+        </div>
+      </div>
+      <div class="glass-card">
+        <h3><i class="bi bi-shield-check"></i> Objectifs de la réforme</h3>
+        <ul>
+          <li>Renforcer la lutte contre la fraude à la TVA et améliorer la collecte fiscale.</li>
+          <li>Moderniser les échanges interentreprises par la dématérialisation.</li>
+          <li>Simplifier les obligations déclaratives des entreprises.</li>
+          <li>Améliorer la compétitivité et la productivité du tissu économique.</li>
+          <li>Accroître la traçabilité et la fiabilité des données économiques.</li>
+        </ul>
       </div>
     </section>
 
-    <nav class="toc" aria-label="Sommaire">
-      <h2>Sommaire</h2>
-      <ul>
-        <li><a href="#contexte">1. Contexte réglementaire</a></li>
-        <li><a href="#probleme">2. Problème structurel</a></li>
-        <li><a href="#enjeux">3. Enjeux d’intérêt public</a></li>
-        <li><a href="#solution">4. Solution proposée : HexaFact</a></li>
-        <li><a href="#alignement">5. Alignement avec les politiques publiques</a></li>
-        <li><a href="#financement">6. Financement sollicité</a></li>
-        <li><a href="#cadre">7. Nature de la demande et cadre</a></li>
-        <li><a href="#impact">8. Impact attendu</a></li>
-        <li><a href="#etat">9. État d’avancement</a></li>
-      </ul>
-    </nav>
+    <section class="layout">
+      <aside class="toc-panel">
+        <h2>Sommaire</h2>
+        <a href="#section-1" data-target="section-1">1. Contexte réglementaire</a>
+        <a href="#section-2" data-target="section-2">2. Problème structurel</a>
+        <a href="#section-3" data-target="section-3">3. Enjeux d’intérêt public</a>
+        <a href="#section-4" data-target="section-4">4. Solution proposée</a>
+        <a href="#section-5" data-target="section-5">5. Alignement public</a>
+        <a href="#section-6" data-target="section-6">6. Financement sollicité</a>
+        <a href="#section-7" data-target="section-7">7. Cadre et instruction</a>
+        <a href="#section-8" data-target="section-8">8. Impact attendu</a>
+        <a href="#section-9" data-target="section-9">9. État d’avancement</a>
+      </aside>
 
-    <section id="contexte" class="section">
-      <h2><span class="emoji" aria-hidden="true">🏛️</span> 1. Contexte réglementaire et institutionnel</h2>
-      <p>La réforme nationale de la facturation électronique s’inscrit dans une trajectoire de modernisation fiscale et administrative engagée par l’État français depuis plusieurs années, dans un cadre à la fois national et européen.</p>
-      <p>Elle repose notamment sur l’ordonnance n°2021-1190 du 15 septembre 2021, prise en application de l’article 153 de la loi n°2020-1721 du 29 décembre 2020 de finances pour 2021, et a été précisée par les lois de finances successives ainsi que par les travaux de l’administration fiscale.</p>
-      <p>Cette réforme prévoit la généralisation progressive de la facturation électronique et du e-reporting pour l’ensemble des entreprises établies en France, y compris les très petites entreprises (TPE), selon un calendrier échelonné entre 2026 et 2027.</p>
-      <p>À terme, toutes les entreprises seront tenues :</p>
-      <ul class="list">
-        <li>d’émettre des factures électroniques conformes aux formats réglementaires,</li>
-        <li>de recevoir des factures électroniques,</li>
-        <li>de transmettre à l’administration fiscale les données de facturation et de transaction nécessaires au contrôle de la TVA.</li>
-      </ul>
-      <p>Les factures devront transiter par des plateformes de dématérialisation répondant à des exigences techniques, fonctionnelles et de sécurité strictement encadrées par l’État.</p>
-      <h3>Objectifs poursuivis par la réforme</h3>
-      <p>La réforme de la facturation électronique poursuit plusieurs objectifs d’intérêt général clairement identifiés par les pouvoirs publics :</p>
-      <ul class="list">
-        <li>renforcer la lutte contre la fraude à la TVA et améliorer la collecte fiscale,</li>
-        <li>moderniser les échanges interentreprises par la dématérialisation,</li>
-        <li>simplifier les obligations déclaratives des entreprises,</li>
-        <li>améliorer la compétitivité et la productivité du tissu économique,</li>
-        <li>accroître la traçabilité et la fiabilité des données économiques.</li>
-      </ul>
-      <p>Cette réforme constitue ainsi un levier majeur de transformation numérique de l’économie française.</p>
-      <h3>Nouvelles obligations pour les entreprises</h3>
-      <p>La réforme impose aux entreprises, quelle que soit leur taille, de se conformer à des exigences nouvelles et complexes, notamment :</p>
-      <ul class="list">
-        <li>l’émission et la réception de factures exclusivement sous format électronique conforme,</li>
-        <li>le respect de formats normalisés et de schémas de données imposés,</li>
-        <li>la transmission obligatoire des données de facturation et de paiement à l’administration fiscale (e-reporting),</li>
-        <li>l’intégration de processus techniques et organisationnels garantissant la conformité réglementaire.</li>
-      </ul>
-      <p>Ces obligations impliquent une montée en compétence numérique significative, ainsi qu’une adaptation des pratiques administratives des entreprises.</p>
-      <h3>Enjeux de conformité et de sanctions</h3>
-      <p>Le non-respect des obligations liées à la facturation électronique expose les entreprises à :</p>
-      <ul class="list">
-        <li>des sanctions financières prévues par le cadre réglementaire,</li>
-        <li>des risques de non-conformité administrative,</li>
-        <li>des difficultés dans leurs relations commerciales et fiscales.</li>
-      </ul>
-      <p>La mise en conformité constitue donc un enjeu majeur pour l’ensemble du tissu économique, et en particulier pour les très petites entreprises, qui disposent de marges de manœuvre limitées pour absorber ces nouvelles contraintes.</p>
-    </section>
-
-    <section id="probleme" class="section">
-      <h2><span class="emoji" aria-hidden="true">⚠️</span> 2. Problème structurel identifié</h2>
-      <p>Les très petites entreprises (TPE) représentent plus de 90 % du tissu économique français et constituent un maillon essentiel de l’économie nationale. Elles sont cependant la catégorie d’entreprises la plus exposée aux difficultés d’application de la réforme de la facturation électronique.</p>
-      <p>Contrairement aux entreprises de taille intermédiaire ou aux grandes structures, les TPE disposent de marges organisationnelles, financières et techniques très limitées. Une part significative d’entre elles ne dispose pas :</p>
-      <ul class="list">
-        <li>des compétences numériques nécessaires à la compréhension et à la mise en œuvre de dispositifs techniques complexes,</li>
-        <li>des ressources financières suffisantes pour recourir à des solutions privées onéreuses,</li>
-        <li>ni d’un accompagnement structuré et accessible permettant une mise en conformité progressive et sécurisée.</li>
-      </ul>
-      <p>Pour de nombreuses TPE, la facturation reste aujourd’hui gérée via des outils simples ou des pratiques manuelles, sans intégration de systèmes numériques avancés. La réforme introduit ainsi une rupture importante dans leurs usages administratifs quotidiens.</p>
-      <h3>Limites des solutions existantes</h3>
-      <p>Les solutions actuellement disponibles sur le marché de la facturation électronique sont majoritairement :</p>
-      <ul class="list">
-        <li>conçues pour des entreprises déjà structurées sur le plan administratif et comptable,</li>
-        <li>complexes à paramétrer et à utiliser pour un public non expert,</li>
-        <li>financièrement contraignantes pour des structures à faibles marges,</li>
-        <li>fondées sur des modèles commerciaux fermés, avec des coûts récurrents et une dépendance forte aux éditeurs.</li>
-      </ul>
-      <p>Ces solutions, bien que pertinentes pour certaines catégories d’entreprises, ne répondent pas de manière satisfaisante aux contraintes spécifiques des TPE, tant en termes de simplicité d’usage que d’accessibilité économique.</p>
-      <h3>Risque systémique de non-conformité</h3>
-      <p>L’absence de solutions adaptées et accessibles fait émerger un risque systémique de non-conformité des TPE face à la réforme de la facturation électronique.</p>
-      <p>Ce risque se traduit par :</p>
-      <ul class="list">
-        <li>une probabilité élevée de retard ou d’échec dans la mise en conformité,</li>
-        <li>une exposition accrue aux sanctions administratives et financières,</li>
-        <li>une application hétérogène de la réforme selon les territoires et les secteurs,</li>
-        <li>une fragilisation économique de structures déjà vulnérables.</li>
-      </ul>
-      <p>À l’échelle nationale, cette situation est susceptible de compromettre l’application homogène et équitable de la réforme, pourtant essentielle à l’atteinte des objectifs poursuivis par l’État en matière de modernisation fiscale et de transformation numérique.</p>
-      <h3>Enjeu de politique publique</h3>
-      <p>Le problème identifié dépasse le cadre d’une difficulté individuelle ou sectorielle. Il s’agit d’un enjeu structurel qui conditionne la réussite globale de la réforme.</p>
-      <p>Sans action ciblée en direction des TPE, la réforme de la facturation électronique comporte un risque réel de :</p>
-      <ul class="list">
-        <li>creuser la fracture numérique,</li>
-        <li>accentuer les inégalités d’accès à la conformité réglementaire,</li>
-        <li>générer des coûts indirects supplémentaires pour l’administration liés au contrôle et à la gestion des situations de non-conformité.</li>
-      </ul>
-      <p>La problématique identifiée appelle donc une réponse adaptée, structurée et accessible, relevant pleinement de l’intérêt général.</p>
-    </section>
-
-    <section id="enjeux" class="section">
-      <h2><span class="emoji" aria-hidden="true">🛡️</span> 3. Enjeux d’intérêt public</h2>
-      <p>L’absence de solutions accessibles, simples et conformes spécifiquement destinées aux très petites entreprises (TPE) fait peser des risques majeurs sur la mise en œuvre effective de la réforme de la facturation électronique et, plus largement, sur l’atteinte des objectifs d’intérêt général poursuivis par l’État.</p>
-      <h3>Risques opérationnels et administratifs</h3>
-      <p>En l’absence d’outils adaptés aux contraintes des TPE, plusieurs dérives structurelles sont susceptibles d’apparaître :</p>
-      <ul class="list">
-        <li>multiplication des situations de non-conformité involontaire,</li>
-        <li>exposition accrue des TPE aux sanctions financières prévues par le cadre réglementaire,</li>
-        <li>augmentation des contentieux et des situations de régularisation tardive,</li>
-        <li>hétérogénéité territoriale dans l’application de la réforme.</li>
-      </ul>
-      <p>Ces phénomènes risquent d’entraver la généralisation homogène de la facturation électronique, pourtant essentielle à la modernisation du système fiscal.</p>
-      <h3>Aggravation de la fracture numérique</h3>
-      <p>La réforme de la facturation électronique, bien qu’indispensable, introduit un saut technologique significatif pour les entreprises les plus petites.</p>
-      <p>Sans accompagnement et sans solutions accessibles :</p>
-      <ul class="list">
-        <li>la fracture numérique existante entre entreprises se creuse,</li>
-        <li>les TPE les moins outillées se trouvent durablement pénalisées,</li>
-        <li>une partie du tissu économique risque d’être exclue des bénéfices attendus de la réforme.</li>
-      </ul>
-      <p>Ce constat est régulièrement souligné par les rapports publics relatifs à la transformation numérique des entreprises et à l’inclusion numérique.</p>
-      <h3>Dépendance accrue à des plateformes privées</h3>
-      <p>En l’absence d’alternatives accessibles, les TPE se trouvent contraintes de recourir à des solutions privées souvent :</p>
-      <ul class="list">
-        <li>coûteuses,</li>
-        <li>techniquement complexes,</li>
-        <li>fondées sur des modèles économiques fermés,</li>
-        <li>génératrices de dépendance à long terme vis-à-vis des éditeurs.</li>
-      </ul>
-      <p>Cette situation pose plusieurs enjeux :</p>
-      <ul class="list">
-        <li>limitation du libre choix des entreprises,</li>
-        <li>captation de la conformité réglementaire par des acteurs privés,</li>
-        <li>fragilisation de la souveraineté numérique,</li>
-        <li>augmentation des coûts structurels pour les plus petites entreprises.</li>
-      </ul>
-      <h3>Inégalités économiques et territoriales</h3>
-      <p>Le manque de solutions adaptées accentue les inégalités :</p>
-      <ul class="list">
-        <li>entre entreprises selon leur taille,</li>
-        <li>entre territoires selon leur niveau d’accompagnement,</li>
-        <li>entre secteurs économiques.</li>
-      </ul>
-      <p>Les TPE implantées dans des zones moins bien dotées en accompagnement numérique sont particulièrement exposées, ce qui va à l’encontre des principes d’égalité devant la loi et d’équité territoriale.</p>
-      <h3>Enjeu de sécurisation de l’action publique</h3>
-      <p>La réussite de la réforme de la facturation électronique repose sur la capacité de l’État à garantir :</p>
-      <ul class="list">
-        <li>une application effective et homogène des obligations,</li>
-        <li>un taux de conformité élevé,</li>
-        <li>une réduction durable de la fraude à la TVA,</li>
-        <li>une simplification réelle des obligations déclaratives.</li>
-      </ul>
-      <p>À ce titre, l’existence d’outils :</p>
-      <ul class="list">
-        <li>simples d’usage,</li>
-        <li>techniquement conformes,</li>
-        <li>accessibles financièrement,</li>
-        <li>indépendants des logiques de captation commerciale,</li>
-      </ul>
-      <p>constitue une condition essentielle de sécurisation de l’action publique.</p>
-      <p>Il ne s’agit donc pas uniquement d’un sujet technologique ou économique, mais d’un enjeu structurel de politique publique, conditionnant la réussite d’une réforme nationale majeure.</p>
-      <h3>Références institutionnelles et contextuelles</h3>
-      <p>Ce positionnement s’inscrit dans un cadre largement documenté par :</p>
-      <ul class="list">
-        <li>les travaux de la Direction générale des finances publiques (DGFiP) sur la lutte contre la fraude à la TVA,</li>
-        <li>les analyses de la Cour des comptes relatives à la modernisation des systèmes fiscaux,</li>
-        <li>les objectifs européens de réduction du “VAT Gap” (écart de TVA),</li>
-        <li>les politiques publiques de transformation numérique et d’inclusion économique.</li>
-      </ul>
-      <p>La facturation électronique est ainsi identifiée comme un levier stratégique, dont la réussite dépend directement de l’accessibilité des outils proposés à l’ensemble du tissu économique.</p>
-    </section>
-
-    <section id="solution" class="section">
-      <h2><span class="emoji" aria-hidden="true">📦</span> 4. Solution proposée : HexaFact</h2>
-      <p>HexaFact est une infrastructure logicielle de conformité réglementaire, conçue spécifiquement pour répondre aux contraintes opérationnelles, techniques et économiques des très petites entreprises dans le cadre de la réforme obligatoire de la facturation électronique.</p>
-      <p>La solution a été pensée dès l’origine comme un outil de mise en conformité progressive, accessible à des utilisateurs non experts, et aligné avec les exigences réglementaires à venir.</p>
-      <h3>Fonctionnalités opérationnelles actuelles</h3>
-      <p>HexaFact permet dès à présent :</p>
-      <ul class="list">
-        <li>la création de devis conformes aux exigences légales,</li>
-        <li>la génération de factures intégrant les mentions obligatoires,</li>
-        <li>la structuration des données de facturation selon une logique compatible avec les futurs formats réglementaires,</li>
-        <li>la gestion des informations émetteur et client nécessaires à la conformité,</li>
-        <li>l’accompagnement pas à pas de l’utilisateur dans le processus de facturation.</li>
-      </ul>
-      <p>L’interface repose sur un parcours guidé, structuré en étapes successives, permettant de limiter les erreurs de saisie et de faciliter l’appropriation par des TPE peu familiarisées avec les outils numériques complexes.</p>
-      <h3>Accessibilité et absence de barrières à l’entrée</h3>
-      <p>HexaFact a été conçu pour être utilisable sans :</p>
-      <ul class="list">
-        <li>abonnement,</li>
-        <li>engagement financier,</li>
-        <li>dépendance à un éditeur privé,</li>
-        <li>complexité technique excessive.</li>
-      </ul>
-      <p>Cette approche permet :</p>
-      <ul class="list">
-        <li>un accès immédiat à la conformité,</li>
-        <li>une adoption facilitée par les TPE,</li>
-        <li>une réduction des coûts indirects liés à la mise en conformité.</li>
-      </ul>
-      <p>L’absence de barrière financière constitue un levier essentiel pour éviter l’exclusion des plus petites structures de la réforme.</p>
-      <h3>Logique d’infrastructure et non de produit commercial</h3>
-      <p>HexaFact ne se positionne pas comme un logiciel commercial classique orienté vers la vente ou la captation de clientèle.</p>
-      <p>Le projet s’inscrit dans une logique d’infrastructure de conformité, visant à :</p>
-      <ul class="list">
-        <li>faciliter l’exécution opérationnelle d’une réforme d’État,</li>
-        <li>sécuriser les pratiques de facturation des TPE,</li>
-        <li>contribuer à la réussite globale de la réforme.</li>
-      </ul>
-      <p>Cette logique distingue HexaFact des solutions de marché, en mettant l’accent sur la conformité, l’accessibilité et l’intérêt général plutôt que sur la performance commerciale.</p>
-      <h3>Principes structurants du projet</h3>
-      <p>Le développement de HexaFact repose sur des principes clairs et structurants :</p>
-      <ul class="list">
-        <li>Accessibilité universelle : outil conçu pour être utilisable par toutes les TPE, quel que soit leur niveau de maturité numérique.</li>
-        <li>Simplicité d’usage : parcours guidé, interface lisible, réduction des points de friction.</li>
-        <li>Conformité réglementaire : intégration progressive des exigences liées à la réforme de la facturation électronique.</li>
-        <li>Transparence des processus : compréhension claire des étapes de facturation et des données produites.</li>
-        <li>Indépendance : absence de dépendance à des modèles commerciaux contraignants.</li>
-        <li>Contribution à la souveraineté numérique : logique d’outil ouvert, évitant la captation de la conformité par des acteurs privés dominants.</li>
-      </ul>
-      <h3>Rôle dans l’exécution de la réforme</h3>
-      <p>HexaFact constitue un outil opérationnel d’accompagnement de la réforme, en permettant aux TPE :</p>
-      <ul class="list">
-        <li>d’anticiper les obligations à venir,</li>
-        <li>de se familiariser avec les processus de facturation électronique,</li>
-        <li>de réduire le risque de non-conformité,</li>
-        <li>de sécuriser leurs pratiques administratives.</li>
-      </ul>
-      <p>À ce titre, HexaFact participe directement à la sécurisation de l’action publique, en facilitant l’application effective et équitable d’une réforme nationale majeure.</p>
-    </section>
-
-    <section id="alignement" class="section">
-      <h2><span class="emoji" aria-hidden="true">🧭</span> 5. Caractère stratégique & alignement public</h2>
-      <p>HexaFact s’inscrit pleinement dans les priorités stratégiques définies par l’État en matière de modernisation administrative, de transformation numérique des entreprises et de sécurisation des réformes fiscales.</p>
-      <p>Le projet vise à accompagner de manière opérationnelle la mise en œuvre de la réforme nationale de la facturation électronique, en répondant à un besoin identifié de sécurisation du tissu économique des très petites entreprises.</p>
-      <h3>Contribution directe à la mise en œuvre de la réforme</h3>
-      <p>HexaFact participe directement à :</p>
-      <ul class="list">
-        <li>l’application effective et homogène de la réforme de la facturation électronique,</li>
-        <li>la réduction du risque de non-conformité des TPE,</li>
-        <li>la sécurisation des obligations déclaratives et de facturation,</li>
-        <li>la limitation des défaillances administratives liées à une mauvaise appropriation des nouvelles règles.</li>
-      </ul>
-      <p>En facilitant l’appropriation des obligations par les TPE, le projet contribue à garantir l’efficacité réelle de la réforme, au-delà de son cadre juridique.</p>
-      <h3>Sécurisation du tissu économique des TPE</h3>
-      <p>Les TPE constituent un pilier essentiel de l’économie française, mais également un public particulièrement vulnérable face aux évolutions réglementaires complexes.</p>
-      <p>HexaFact permet de :</p>
-      <ul class="list">
-        <li>préserver la continuité économique des petites structures,</li>
-        <li>réduire les risques de sanctions financières,</li>
-        <li>éviter les ruptures d’activité liées à des défauts de conformité,</li>
-        <li>accompagner les entreprises les plus fragiles dans leur transition numérique.</li>
-      </ul>
-      <p>Cette approche s’inscrit dans une logique de protection du tissu économique local et de prévention des difficultés économiques.</p>
-      <h3>Réduction des coûts futurs pour l’administration</h3>
-      <p>La non-conformité généralisée des TPE entraînerait :</p>
-      <ul class="list">
-        <li>une multiplication des contrôles,</li>
-        <li>une augmentation des procédures de régularisation,</li>
-        <li>un alourdissement des contentieux fiscaux,</li>
-        <li>des coûts indirects supplémentaires pour l’administration.</li>
-      </ul>
-      <p>En facilitant la conformité en amont, HexaFact contribue à :</p>
-      <ul class="list">
-        <li>réduire la charge administrative de contrôle,</li>
-        <li>limiter les situations de contentieux,</li>
-        <li>optimiser l’efficacité des dispositifs de suivi et de collecte fiscale.</li>
-      </ul>
-      <p>Le projet participe ainsi à une logique de rationalisation de l’action publique.</p>
-      <h3>Égalité d’accès à la conformité réglementaire</h3>
-      <p>HexaFact contribue à garantir :</p>
-      <ul class="list">
-        <li>l’égalité d’accès des entreprises aux obligations réglementaires,</li>
-        <li>une application équitable de la réforme, indépendamment de la taille ou du territoire,</li>
-        <li>la réduction des inégalités numériques et économiques.</li>
-      </ul>
-      <p>Ce principe d’égalité constitue un fondement essentiel de l’action publique et de la légitimité de la réforme.</p>
-      <h3>Alignement avec les orientations de politique publique</h3>
-      <p>Le projet s’inscrit en cohérence avec :</p>
-      <ul class="list">
-        <li>les politiques publiques de transformation numérique,</li>
-        <li>les objectifs de simplification administrative,</li>
-        <li>les stratégies de soutien aux TPE,</li>
-        <li>les engagements de lutte contre la fraude à la TVA,</li>
-        <li>les principes de souveraineté et d’indépendance numérique.</li>
-      </ul>
-      <p>HexaFact ne constitue pas un projet entrepreneurial isolé, mais un levier opérationnel de politique publique, contribuant à la réussite d’une réforme nationale structurante.</p>
-      <h3>Positionnement institutionnel du projet</h3>
-      <p>Par son objet, son périmètre et ses objectifs, HexaFact se positionne :</p>
-      <ul class="list">
-        <li>comme un outil d’accompagnement de l’action publique,</li>
-        <li>comme une infrastructure de sécurisation réglementaire,</li>
-        <li>comme un dispositif facilitant l’exécution concrète d’une réforme d’État.</li>
-      </ul>
-      <p>Ce positionnement justifie pleinement l’intervention d’un soutien public, non comme un financement d’innovation privée, mais comme un investissement au service de l’intérêt général.</p>
-      <h3>Perspective d’adossement institutionnel</h3>
-      <p>Compte tenu de la vocation d’intérêt général du projet et de son lien direct avec l’exécution d’une réforme nationale, HexaFact a vocation, à terme, à être adossé à un cadre institutionnel, que ce soit sous la forme d’un partenariat public, d’un portage par un organisme public ou parapublic, ou d’une intégration dans l’écosystème numérique de l’État.</p>
-      <p>Cette perspective vise à garantir la neutralité de l’outil, son accessibilité universelle et sa pérennité, tout en évitant toute logique de captation commerciale de la conformité réglementaire.</p>
-    </section>
-
-    <section id="financement" class="section">
-      <h2><span class="emoji" aria-hidden="true">💶</span> 6. Financement sollicité et affectation</h2>
-      <p>Le financement public sollicité vise à permettre la consolidation, la sécurisation et le déploiement d’une infrastructure de conformité réglementaire destinée aux très petites entreprises dans le cadre de la réforme obligatoire de la facturation électronique 2026–2027.</p>
-      <p>La demande s’inscrit dans une logique d’investissement public ciblé, destiné à prévenir des coûts futurs liés à la non-conformité et à sécuriser l’application effective d’une réforme nationale.</p>
-      <h3>6.1 Montant du financement sollicité</h3>
-      <p>Le porteur de projet sollicite une subvention non remboursable comprise entre 60 000 € et 80 000 €, correspondant au besoin réel de mise à niveau réglementaire, technique et opérationnelle de l’infrastructure.</p>
-      <p>Ce montant est cohérent avec les dispositifs régionaux et nationaux de soutien à l’innovation réglementaire et à la transformation numérique des TPE.</p>
-      <h3>6.2 Répartition prévisionnelle des dépenses</h3>
-      <p>Le financement public serait affecté de la manière suivante :</p>
-      <p>a) Finalisation de la conformité réglementaire – 20 000 €</p>
-      <ul class="list">
-        <li>intégration complète des exigences liées à la facturation électronique (mentions, formats, structuration des données),</li>
-        <li>alignement avec les schémas de données attendus par l’administration fiscale,</li>
-        <li>préparation à l’interopérabilité avec les dispositifs de transmission des données (e-reporting),</li>
-        <li>veille réglementaire et adaptation aux évolutions prévues d’ici 2026–2027.</li>
-      </ul>
-      <p>Objectif : garantir une conformité juridique et technique totale de l’outil.</p>
-      <p>b) Renforcement de la robustesse technique et documentaire – 15 000 €</p>
-      <ul class="list">
-        <li>stabilisation de l’infrastructure logicielle,</li>
-        <li>amélioration de la fiabilité des traitements,</li>
-        <li>formalisation de la documentation fonctionnelle et technique,</li>
-        <li>clarification des processus de génération et de gestion des factures.</li>
-      </ul>
-      <p>Objectif : sécuriser l’usage de l’outil dans la durée.</p>
-      <p>c) Sécurisation de l’usage pour un public non expert – 15 000 €</p>
-      <ul class="list">
-        <li>amélioration de l’ergonomie du parcours utilisateur,</li>
-        <li>réduction des risques d’erreurs de saisie,</li>
-        <li>intégration de mécanismes de contrôle et d’alerte,</li>
-        <li>adaptation de l’interface aux usages réels des TPE.</li>
-      </ul>
-      <p>Objectif : permettre une appropriation autonome de l’outil par des utilisateurs non spécialisés.</p>
-      <p>d) Traçabilité et fiabilité des processus – 10 000 €</p>
-      <ul class="list">
-        <li>mise en place de mécanismes de traçabilité des opérations,</li>
-        <li>fiabilisation des données produites,</li>
-        <li>structuration des journaux de traitement,</li>
-        <li>préparation aux exigences de contrôle et d’audit.</li>
-      </ul>
-      <p>Objectif : garantir la crédibilité de l’infrastructure dans un contexte réglementaire exigeant.</p>
-      <p>e) Déploiement pilote auprès des TPE – 10 000 à 20 000 €</p>
-      <ul class="list">
-        <li>sélection d’un panel de TPE utilisatrices,</li>
-        <li>accompagnement à l’usage,</li>
-        <li>recueil de retours terrain,</li>
-        <li>ajustements fonctionnels et techniques.</li>
-      </ul>
-      <p>Objectif : tester l’infrastructure en conditions réelles avant généralisation.</p>
-      <table aria-label="Répartition prévisionnelle des dépenses">
-        <thead>
-          <tr>
-            <th>Poste</th>
-            <th>Objectif</th>
-            <th>Montant</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Conformité réglementaire</td>
-            <td>Alignement complet avec les exigences e-invoicing / e-reporting</td>
-            <td>20 000 €</td>
-          </tr>
-          <tr>
-            <td>Robustesse technique & documentation</td>
-            <td>Stabilisation, fiabilité, documentation</td>
-            <td>15 000 €</td>
-          </tr>
-          <tr>
-            <td>Sécurisation de l’usage</td>
-            <td>Ergonomie, réduction des erreurs, alertes</td>
-            <td>15 000 €</td>
-          </tr>
-          <tr>
-            <td>Traçabilité & fiabilité</td>
-            <td>Journaux, audits, crédibilité</td>
-            <td>10 000 €</td>
-          </tr>
-          <tr>
-            <td>Déploiement pilote TPE</td>
-            <td>Panel, accompagnement, ajustements</td>
-            <td>10 000 à 20 000 €</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="bars" aria-label="Visualisation des dépenses">
-        <div class="bar">
-          <span>Conformité réglementaire</span>
-          <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
-          <span>20 000 €</span>
+      <div>
+        <div class="toc-mobile">
+          <button id="tocToggle" class="btn-hf toc-toggle" aria-label="Ouvrir le sommaire" aria-expanded="false">
+            Sommaire <i class="bi bi-chevron-down"></i>
+          </button>
+          <nav id="tocDrawer" class="toc-drawer">
+            <a href="#section-1" data-target="section-1">1. Contexte réglementaire</a>
+            <a href="#section-2" data-target="section-2">2. Problème structurel</a>
+            <a href="#section-3" data-target="section-3">3. Enjeux d’intérêt public</a>
+            <a href="#section-4" data-target="section-4">4. Solution proposée</a>
+            <a href="#section-5" data-target="section-5">5. Alignement public</a>
+            <a href="#section-6" data-target="section-6">6. Financement sollicité</a>
+            <a href="#section-7" data-target="section-7">7. Cadre et instruction</a>
+            <a href="#section-8" data-target="section-8">8. Impact attendu</a>
+            <a href="#section-9" data-target="section-9">9. État d’avancement</a>
+          </nav>
         </div>
-        <div class="bar">
-          <span>Robustesse & doc</span>
-          <div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div>
-          <span>15 000 €</span>
-        </div>
-        <div class="bar">
-          <span>Sécurisation usage</span>
-          <div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div>
-          <span>15 000 €</span>
-        </div>
-        <div class="bar">
-          <span>Traçabilité</span>
-          <div class="bar-track"><div class="bar-fill" style="width: 20%"></div></div>
-          <span>10 000 €</span>
-        </div>
-        <div class="bar">
-          <span>Déploiement pilote</span>
-          <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
-          <span>10–20 000 €</span>
-        </div>
+
+        <section id="section-1" class="section-block glass-card reveal" data-section>
+          <h2><i class="bi bi-bank"></i> 1. Contexte réglementaire et institutionnel</h2>
+          <!-- PDF p1 -->
+          <p>La réforme nationale de la facturation électronique s’inscrit dans une trajectoire de modernisation fiscale et administrative engagée par l’État français depuis plusieurs années, dans un cadre à la fois national et européen.</p>
+          <p>Elle repose notamment sur l’ordonnance n°2021-1190 du 15 septembre 2021, prise en application de l’article 153 de la loi n°2020-1721 du 29 décembre 2020 de finances pour 2021, et a été précisée par les lois de finances successives ainsi que par les travaux de l’administration fiscale.</p>
+          <p>Cette réforme prévoit la généralisation progressive de la facturation électronique et du e-reporting pour l’ensemble des entreprises établies en France, y compris les très petites entreprises (TPE), selon un calendrier échelonné entre 2026 et 2027.</p>
+          <div class="callout info">
+            <strong><i class="bi bi-calendar-event"></i> Calendrier 2026–2027</strong>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div><strong>2026</strong> — calendrier échelonné entre 2026 et 2027.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div><strong>2027</strong> — calendrier échelonné entre 2026 et 2027.</div>
+              </div>
+            </div>
+          </div>
+          <p>À terme, toutes les entreprises seront tenues :</p>
+          <ul>
+            <li>d’émettre des factures électroniques conformes aux formats réglementaires,</li>
+            <li>de recevoir des factures électroniques,</li>
+            <li>de transmettre à l’administration fiscale les données de facturation et de transaction nécessaires au contrôle de la TVA.</li>
+          </ul>
+          <div class="callout info">
+            <strong><i class="bi bi-cloud-check"></i> Exigences techniques</strong>
+            <p>Les factures devront transiter par des plateformes de dématérialisation répondant à des exigences techniques, fonctionnelles et de sécurité strictement encadrées par l’État.</p>
+          </div>
+          <h3>Objectifs poursuivis par la réforme</h3>
+          <p>La réforme de la facturation électronique poursuit plusieurs objectifs d’intérêt général clairement identifiés par les pouvoirs publics :</p>
+          <ul>
+            <li>renforcer la lutte contre la fraude à la TVA et améliorer la collecte fiscale,</li>
+            <li>moderniser les échanges interentreprises par la dématérialisation,</li>
+            <li>simplifier les obligations déclaratives des entreprises,</li>
+            <li>améliorer la compétitivité et la productivité du tissu économique,</li>
+            <li>accroître la traçabilité et la fiabilité des données économiques.</li>
+          </ul>
+          <p>Cette réforme constitue ainsi un levier majeur de transformation numérique de l’économie française.</p>
+          <h3>Nouvelles obligations pour les entreprises</h3>
+          <p>La réforme impose aux entreprises, quelle que soit leur taille, de se conformer à des exigences nouvelles et complexes, notamment :</p>
+          <!-- PDF p2 -->
+          <ul>
+            <li>l’émission et la réception de factures exclusivement sous format électronique conforme,</li>
+            <li>le respect de formats normalisés et de schémas de données imposés,</li>
+            <li>la transmission obligatoire des données de facturation et de paiement à l’administration fiscale (e-reporting),</li>
+            <li>l’intégration de processus techniques et organisationnels garantissant la conformité réglementaire.</li>
+          </ul>
+          <p>Ces obligations impliquent une montée en compétence numérique significative, ainsi qu’une adaptation des pratiques administratives des entreprises.</p>
+          <h3>Enjeux de conformité et de sanctions</h3>
+          <div class="callout warning">
+            <strong><i class="bi bi-exclamation-triangle"></i> Enjeux de conformité et de sanctions</strong>
+            <p>Le non-respect des obligations liées à la facturation électronique expose les entreprises à :</p>
+            <ul>
+              <li>des sanctions financières prévues par le cadre réglementaire,</li>
+              <li>des risques de non-conformité administrative,</li>
+              <li>des difficultés dans leurs relations commerciales et fiscales.</li>
+            </ul>
+          </div>
+          <p>La mise en conformité constitue donc un enjeu majeur pour l’ensemble du tissu économique, et en particulier pour les très petites entreprises, qui disposent de marges de manœuvre limitées pour absorber ces nouvelles contraintes.</p>
+        </section>
+
+        <section id="section-2" class="section-block glass-card reveal" data-section>
+          <h2><i class="bi bi-exclamation-triangle"></i> 2. Problème structurel identifié</h2>
+          <p>Les très petites entreprises (TPE) représentent plus de 90 % du tissu économique français et constituent un maillon essentiel de l’économie nationale. Elles sont cependant la catégorie d’entreprises la plus exposée aux difficultés d’application de la réforme de la facturation électronique.</p>
+          <p>Contrairement aux entreprises de taille intermédiaire ou aux grandes structures, les TPE disposent de marges organisationnelles, financières et techniques très limitées. Une part significative d’entre elles ne dispose pas :</p>
+          <ul>
+            <li>des compétences numériques nécessaires à la compréhension et à la mise en œuvre de dispositifs techniques complexes,</li>
+            <li>des ressources financières suffisantes pour recourir à des solutions privées onéreuses,</li>
+            <li>ni d’un accompagnement structuré et accessible permettant une mise en conformité progressive et sécurisée.</li>
+          </ul>
+          <p>Pour de nombreuses TPE, la facturation reste aujourd’hui gérée via des outils simples ou des pratiques manuelles, sans intégration de systèmes numériques avancés. La réforme introduit ainsi une rupture importante dans leurs usages administratifs quotidiens.</p>
+          <!-- PDF p3 -->
+          <h3>Limites des solutions existantes</h3>
+          <p>Les solutions actuellement disponibles sur le marché de la facturation électronique sont majoritairement :</p>
+          <ul>
+            <li>conçues pour des entreprises déjà structurées sur le plan administratif et comptable,</li>
+            <li>complexes à paramétrer et à utiliser pour un public non expert,</li>
+            <li>financièrement contraignantes pour des structures à faibles marges,</li>
+            <li>fondées sur des modèles commerciaux fermés, avec des coûts récurrents et une dépendance forte aux éditeurs.</li>
+          </ul>
+          <p>Ces solutions, bien que pertinentes pour certaines catégories d’entreprises, ne répondent pas de manière satisfaisante aux contraintes spécifiques des TPE, tant en termes de simplicité d’usage que d’accessibilité économique.</p>
+          <h3>Risque systémique de non-conformité</h3>
+          <p>L’absence de solutions adaptées et accessibles fait émerger un risque systémique de non-conformité des TPE face à la réforme de la facturation électronique.</p>
+          <p>Ce risque se traduit par :</p>
+          <ul>
+            <li>une probabilité élevée de retard ou d’échec dans la mise en conformité,</li>
+            <li>une exposition accrue aux sanctions administratives et financières,</li>
+            <li>une application hétérogène de la réforme selon les territoires et les secteurs,</li>
+            <li>une fragilisation économique de structures déjà vulnérables.</li>
+          </ul>
+          <p>À l’échelle nationale, cette situation est susceptible de compromettre l’application homogène et équitable de la réforme, pourtant essentielle à l’atteinte des objectifs poursuivis par l’État en matière de modernisation fiscale et de transformation numérique.</p>
+          <h3>Enjeu de politique publique</h3>
+          <p>Le problème identifié dépasse le cadre d’une difficulté individuelle ou sectorielle. Il s’agit d’un enjeu structurel qui conditionne la réussite globale de la réforme.</p>
+          <p>Sans action ciblée en direction des TPE, la réforme de la facturation électronique comporte un risque réel de :</p>
+          <ul>
+            <li>creuser la fracture numérique,</li>
+            <li>accentuer les inégalités d’accès à la conformité réglementaire,</li>
+            <li>générer des coûts indirects supplémentaires pour l’administration liés au contrôle et à la gestion des situations de non-conformité.</li>
+          </ul>
+          <p>La problématique identifiée appelle donc une réponse adaptée, structurée et accessible, relevant pleinement de l’intérêt général.</p>
+        </section>
+
+        <section id="section-3" class="section-block glass-card reveal" data-section>
+          <!-- PDF p4 -->
+          <h2><i class="bi bi-shield-check"></i> 3. Enjeux d’intérêt public</h2>
+          <p>L’absence de solutions accessibles, simples et conformes spécifiquement destinées aux très petites entreprises (TPE) fait peser des risques majeurs sur la mise en œuvre effective de la réforme de la facturation électronique et, plus largement, sur l’atteinte des objectifs d’intérêt général poursuivis par l’État.</p>
+          <h3>Risques opérationnels et administratifs</h3>
+          <p>En l’absence d’outils adaptés aux contraintes des TPE, plusieurs dérives structurelles sont susceptibles d’apparaître :</p>
+          <ul>
+            <li>multiplication des situations de non-conformité involontaire,</li>
+            <li>exposition accrue des TPE aux sanctions financières prévues par le cadre réglementaire,</li>
+            <li>augmentation des contentieux et des situations de régularisation tardive,</li>
+            <li>hétérogénéité territoriale dans l’application de la réforme.</li>
+          </ul>
+          <p>Ces phénomènes risquent d’entraver la généralisation homogène de la facturation électronique, pourtant essentielle à la modernisation du système fiscal.</p>
+          <h3>Aggravation de la fracture numérique</h3>
+          <p>La réforme de la facturation électronique, bien qu’indispensable, introduit un saut technologique significatif pour les entreprises les plus petites.</p>
+          <p>Sans accompagnement et sans solutions accessibles :</p>
+          <ul>
+            <li>la fracture numérique existante entre entreprises se creuse,</li>
+            <li>les TPE les moins outillées se trouvent durablement pénalisées,</li>
+            <li>une partie du tissu économique risque d’être exclue des bénéfices attendus de la réforme.</li>
+          </ul>
+          <p>Ce constat est régulièrement souligné par les rapports publics relatifs à la transformation numérique des entreprises et à l’inclusion numérique.</p>
+          <h3>Dépendance accrue à des plateformes privées</h3>
+          <p>En l’absence d’alternatives accessibles, les TPE se trouvent contraintes de recourir à des solutions privées souvent :</p>
+          <!-- PDF p5 -->
+          <ul>
+            <li>coûteuses,</li>
+            <li>techniquement complexes,</li>
+            <li>fondées sur des modèles économiques fermés,</li>
+            <li>génératrices de dépendance à long terme vis-à-vis des éditeurs.</li>
+          </ul>
+          <p>Cette situation pose plusieurs enjeux :</p>
+          <ul>
+            <li>limitation du libre choix des entreprises,</li>
+            <li>captation de la conformité réglementaire par des acteurs privés,</li>
+            <li>fragilisation de la souveraineté numérique,</li>
+            <li>augmentation des coûts structurels pour les plus petites entreprises.</li>
+          </ul>
+          <h3>Inégalités économiques et territoriales</h3>
+          <p>Le manque de solutions adaptées accentue les inégalités :</p>
+          <ul>
+            <li>entre entreprises selon leur taille,</li>
+            <li>entre territoires selon leur niveau d’accompagnement,</li>
+            <li>entre secteurs économiques.</li>
+          </ul>
+          <p>Les TPE implantées dans des zones moins bien dotées en accompagnement numérique sont particulièrement exposées, ce qui va à l’encontre des principes d’égalité devant la loi et d’équité territoriale.</p>
+          <h3>Enjeu de sécurisation de l’action publique</h3>
+          <p>La réussite de la réforme de la facturation électronique repose sur la capacité de l’État à garantir :</p>
+          <ul>
+            <li>une application effective et homogène des obligations,</li>
+            <li>un taux de conformité élevé,</li>
+            <li>une réduction durable de la fraude à la TVA,</li>
+            <li>une simplification réelle des obligations déclaratives.</li>
+          </ul>
+          <p>À ce titre, l’existence d’outils :</p>
+          <ul>
+            <li>simples d’usage,</li>
+            <li>techniquement conformes,</li>
+            <li>accessibles financièrement,</li>
+            <li>indépendants des logiques de captation commerciale,</li>
+          </ul>
+          <p>constitue une condition essentielle de sécurisation de l’action publique.</p>
+          <p>Il ne s’agit donc pas uniquement d’un sujet technologique ou économique, mais d’un enjeu structurel de politique publique, conditionnant la réussite d’une réforme nationale majeure.</p>
+          <!-- PDF p6 -->
+          <h3>Références institutionnelles et contextuelles</h3>
+          <p>Ce positionnement s’inscrit dans un cadre largement documenté par :</p>
+          <ul>
+            <li>les travaux de la Direction générale des finances publiques (DGFiP) sur la lutte contre la fraude à la TVA,</li>
+            <li>les analyses de la Cour des comptes relatives à la modernisation des systèmes fiscaux,</li>
+            <li>les objectifs européens de réduction du “VAT Gap” (écart de TVA),</li>
+            <li>les politiques publiques de transformation numérique et d’inclusion économique.</li>
+          </ul>
+          <p>La facturation électronique est ainsi identifiée comme un levier stratégique, dont la réussite dépend directement de l’accessibilité des outils proposés à l’ensemble du tissu économique.</p>
+        </section>
+
+        <section id="section-4" class="section-block glass-card reveal" data-section>
+          <h2><i class="bi bi-box"></i> 4. Solution proposée : HexaFact</h2>
+          <p>HexaFact est une infrastructure logicielle de conformité réglementaire, conçue spécifiquement pour répondre aux contraintes opérationnelles, techniques et économiques des très petites entreprises dans le cadre de la réforme obligatoire de la facturation électronique.</p>
+          <p>La solution a été pensée dès l’origine comme un outil de mise en conformité progressive, accessible à des utilisateurs non experts, et aligné avec les exigences réglementaires à venir.</p>
+          <h3>Fonctionnalités opérationnelles actuelles</h3>
+          <p>HexaFact permet dès à présent :</p>
+          <ul>
+            <li>la création de devis conformes aux exigences légales,</li>
+            <li>la génération de factures intégrant les mentions obligatoires,</li>
+            <li>la structuration des données de facturation selon une logique compatible avec les futurs formats réglementaires,</li>
+            <li>la gestion des informations émetteur et client nécessaires à la conformité,</li>
+            <li>l’accompagnement pas à pas de l’utilisateur dans le processus de facturation.</li>
+          </ul>
+          <p>L’interface repose sur un parcours guidé, structuré en étapes successives, permettant de limiter les erreurs de saisie et de faciliter l’appropriation par des TPE peu familiarisées avec les outils numériques complexes.</p>
+          <h3>Accessibilité et absence de barrières à l’entrée</h3>
+          <p>HexaFact a été conçu pour être utilisable sans :</p>
+          <!-- PDF p7 -->
+          <ul>
+            <li>abonnement,</li>
+            <li>engagement financier,</li>
+            <li>dépendance à un éditeur privé,</li>
+            <li>complexité technique excessive.</li>
+          </ul>
+          <p>Cette approche permet :</p>
+          <ul>
+            <li>un accès immédiat à la conformité,</li>
+            <li>une adoption facilitée par les TPE,</li>
+            <li>une réduction des coûts indirects liés à la mise en conformité.</li>
+          </ul>
+          <p>L’absence de barrière financière constitue un levier essentiel pour éviter l’exclusion des plus petites structures de la réforme.</p>
+          <h3>Logique d’infrastructure et non de produit commercial</h3>
+          <p>HexaFact ne se positionne pas comme un logiciel commercial classique orienté vers la vente ou la captation de clientèle.</p>
+          <p>Le projet s’inscrit dans une logique d’infrastructure de conformité, visant à :</p>
+          <ul>
+            <li>faciliter l’exécution opérationnelle d’une réforme d’État,</li>
+            <li>sécuriser les pratiques de facturation des TPE,</li>
+            <li>contribuer à la réussite globale de la réforme.</li>
+          </ul>
+          <p>Cette logique distingue HexaFact des solutions de marché, en mettant l’accent sur la conformité, l’accessibilité et l’intérêt général plutôt que sur la performance commerciale.</p>
+          <h3>Principes structurants du projet</h3>
+          <p>Le développement de HexaFact repose sur des principes clairs et structurants :</p>
+          <ul>
+            <li>Accessibilité universelle : outil conçu pour être utilisable par toutes les TPE, quel que soit leur niveau de maturité numérique.</li>
+            <li>Simplicité d’usage : parcours guidé, interface lisible, réduction des points de friction.</li>
+            <li>Conformité réglementaire : intégration progressive des exigences liées à la réforme de la facturation électronique.</li>
+            <li>Transparence des processus : compréhension claire des étapes de facturation et des données produites.</li>
+            <li>Indépendance : absence de dépendance à des modèles commerciaux contraignants.</li>
+            <li>Contribution à la souveraineté numérique : logique d’outil ouvert, évitant la captation de la conformité par des acteurs privés dominants.</li>
+          </ul>
+          <h3>Rôle dans l’exécution de la réforme</h3>
+          <!-- PDF p8 -->
+          <p>HexaFact constitue un outil opérationnel d’accompagnement de la réforme, en permettant aux TPE :</p>
+          <ul>
+            <li>d’anticiper les obligations à venir,</li>
+            <li>de se familiariser avec les processus de facturation électronique,</li>
+            <li>de réduire le risque de non-conformité,</li>
+            <li>de sécuriser leurs pratiques administratives.</li>
+          </ul>
+          <p>À ce titre, HexaFact participe directement à la sécurisation de l’action publique, en facilitant l’application effective et équitable d’une réforme nationale majeure.</p>
+        </section>
+
+        <section id="section-5" class="section-block glass-card reveal" data-section>
+          <h2><i class="bi bi-compass"></i> 5. Caractère stratégique et alignement avec les politiques publiques</h2>
+          <p>HexaFact s’inscrit pleinement dans les priorités stratégiques définies par l’État en matière de modernisation administrative, de transformation numérique des entreprises et de sécurisation des réformes fiscales.</p>
+          <p>Le projet vise à accompagner de manière opérationnelle la mise en œuvre de la réforme nationale de la facturation électronique, en répondant à un besoin identifié de sécurisation du tissu économique des très petites entreprises.</p>
+          <h3>Contribution directe à la mise en œuvre de la réforme</h3>
+          <p>HexaFact participe directement à :</p>
+          <ul>
+            <li>l’application effective et homogène de la réforme de la facturation électronique,</li>
+            <li>la réduction du risque de non-conformité des TPE,</li>
+            <li>la sécurisation des obligations déclaratives et de facturation,</li>
+            <li>la limitation des défaillances administratives liées à une mauvaise appropriation des nouvelles règles.</li>
+          </ul>
+          <p>En facilitant l’appropriation des obligations par les TPE, le projet contribue à garantir l’efficacité réelle de la réforme, au-delà de son cadre juridique.</p>
+          <h3>Sécurisation du tissu économique des TPE</h3>
+          <p>Les TPE constituent un pilier essentiel de l’économie française, mais également un public particulièrement vulnérable face aux évolutions réglementaires complexes.</p>
+          <p>HexaFact permet de :</p>
+          <!-- PDF p9 -->
+          <ul>
+            <li>préserver la continuité économique des petites structures,</li>
+            <li>réduire les risques de sanctions financières,</li>
+            <li>éviter les ruptures d’activité liées à des défauts de conformité,</li>
+            <li>accompagner les entreprises les plus fragiles dans leur transition numérique.</li>
+          </ul>
+          <p>Cette approche s’inscrit dans une logique de protection du tissu économique local et de prévention des difficultés économiques.</p>
+          <h3>Réduction des coûts futurs pour l’administration</h3>
+          <p>La non-conformité généralisée des TPE entraînerait :</p>
+          <ul>
+            <li>une multiplication des contrôles,</li>
+            <li>une augmentation des procédures de régularisation,</li>
+            <li>un alourdissement des contentieux fiscaux,</li>
+            <li>des coûts indirects supplémentaires pour l’administration.</li>
+          </ul>
+          <p>En facilitant la conformité en amont, HexaFact contribue à :</p>
+          <ul>
+            <li>réduire la charge administrative de contrôle,</li>
+            <li>limiter les situations de contentieux,</li>
+            <li>optimiser l’efficacité des dispositifs de suivi et de collecte fiscale.</li>
+          </ul>
+          <p>Le projet participe ainsi à une logique de rationalisation de l’action publique.</p>
+          <h3>Égalité d’accès à la conformité réglementaire</h3>
+          <p>HexaFact contribue à garantir :</p>
+          <ul>
+            <li>l’égalité d’accès des entreprises aux obligations réglementaires,</li>
+            <li>une application équitable de la réforme, indépendamment de la taille ou du territoire,</li>
+            <li>la réduction des inégalités numériques et économiques.</li>
+          </ul>
+          <p>Ce principe d’égalité constitue un fondement essentiel de l’action publique et de la légitimité de la réforme.</p>
+          <h3>Alignement avec les orientations de politique publique</h3>
+          <p>Le projet s’inscrit en cohérence avec :</p>
+          <ul>
+            <li>les politiques publiques de transformation numérique,</li>
+            <li>les objectifs de simplification administrative,</li>
+            <li>les stratégies de soutien aux TPE,</li>
+            <li>les engagements de lutte contre la fraude à la TVA,</li>
+            <li>les principes de souveraineté et d’indépendance numérique.</li>
+          </ul>
+          <!-- PDF p10 -->
+          <p>HexaFact ne constitue pas un projet entrepreneurial isolé, mais un levier opérationnel de politique publique, contribuant à la réussite d’une réforme nationale structurante.</p>
+          <h3>Positionnement institutionnel du projet</h3>
+          <p>Par son objet, son périmètre et ses objectifs, HexaFact se positionne :</p>
+          <ul>
+            <li>comme un outil d’accompagnement de l’action publique,</li>
+            <li>comme une infrastructure de sécurisation réglementaire,</li>
+            <li>comme un dispositif facilitant l’exécution concrète d’une réforme d’État.</li>
+          </ul>
+          <p>Ce positionnement justifie pleinement l’intervention d’un soutien public, non comme un financement d’innovation privée, mais comme un investissement au service de l’intérêt général.</p>
+          <h3>Perspective d’adossement institutionnel</h3>
+          <p>Compte tenu de la vocation d’intérêt général du projet et de son lien direct avec l’exécution d’une réforme nationale, HexaFact a vocation, à terme, à être adossé à un cadre institutionnel, que ce soit sous la forme d’un partenariat public, d’un portage par un organisme public ou parapublic, ou d’une intégration dans l’écosystème numérique de l’État.</p>
+          <p>Cette perspective vise à garantir la neutralité de l’outil, son accessibilité universelle et sa pérennité, tout en évitant toute logique de captation commerciale de la conformité réglementaire.</p>
+        </section>
+
+        <section id="section-6" class="section-block glass-card reveal" data-section>
+          <h2><i class="bi bi-cash-coin"></i> 6. Objectifs du financement public sollicité et affectation des moyens</h2>
+          <p>Le financement public sollicité vise à permettre la consolidation, la sécurisation et le déploiement d’une infrastructure de conformité réglementaire destinée aux très petites entreprises dans le cadre de la réforme obligatoire de la facturation électronique 2026–2027.</p>
+          <p>La demande s’inscrit dans une logique d’investissement public ciblé, destiné à prévenir des coûts futurs liés à la non-conformité et à sécuriser l’application effective d’une réforme nationale.</p>
+          <h3>6.1 Montant du financement sollicité</h3>
+          <!-- PDF p11 -->
+          <p>Le porteur de projet sollicite une subvention non remboursable comprise entre 60 000 € et 80 000 €, correspondant au besoin réel de mise à niveau réglementaire, technique et opérationnelle de l’infrastructure.</p>
+          <p>Ce montant est cohérent avec les dispositifs régionaux et nationaux de soutien à l’innovation réglementaire et à la transformation numérique des TPE.</p>
+          <h3>6.2 Répartition prévisionnelle des dépenses</h3>
+          <p>Le financement public serait affecté de la manière suivante :</p>
+          <p>a) Finalisation de la conformité réglementaire – 20 000 €</p>
+          <ul>
+            <li>intégration complète des exigences liées à la facturation électronique (mentions, formats, structuration des données),</li>
+            <li>alignement avec les schémas de données attendus par l’administration fiscale,</li>
+            <li>préparation à l’interopérabilité avec les dispositifs de transmission des données (e-reporting),</li>
+            <li>veille réglementaire et adaptation aux évolutions prévues d’ici 2026–2027.</li>
+          </ul>
+          <p>Objectif : garantir une conformité juridique et technique totale de l’outil.</p>
+          <p>b) Renforcement de la robustesse technique et documentaire – 15 000 €</p>
+          <ul>
+            <li>stabilisation de l’infrastructure logicielle,</li>
+            <li>amélioration de la fiabilité des traitements,</li>
+            <li>formalisation de la documentation fonctionnelle et technique,</li>
+            <li>clarification des processus de génération et de gestion des factures.</li>
+          </ul>
+          <p>Objectif : sécuriser l’usage de l’outil dans la durée.</p>
+          <p>c) Sécurisation de l’usage pour un public non expert – 15 000 €</p>
+          <ul>
+            <li>amélioration de l’ergonomie du parcours utilisateur,</li>
+            <li>réduction des risques d’erreurs de saisie,</li>
+            <li>intégration de mécanismes de contrôle et d’alerte,</li>
+            <li>adaptation de l’interface aux usages réels des TPE.</li>
+          </ul>
+          <p>Objectif : permettre une appropriation autonome de l’outil par des utilisateurs non spécialisés.</p>
+          <p>d) Traçabilité et fiabilité des processus – 10 000 €</p>
+          <!-- PDF p12 -->
+          <ul>
+            <li>mise en place de mécanismes de traçabilité des opérations,</li>
+            <li>fiabilisation des données produites,</li>
+            <li>structuration des journaux de traitement,</li>
+            <li>préparation aux exigences de contrôle et d’audit.</li>
+          </ul>
+          <p>Objectif : garantir la crédibilité de l’infrastructure dans un contexte réglementaire exigeant.</p>
+          <p>e) Déploiement pilote auprès des TPE – 10 000 à 20 000 €</p>
+          <ul>
+            <li>sélection d’un panel de TPE utilisatrices,</li>
+            <li>accompagnement à l’usage,</li>
+            <li>recueil de retours terrain,</li>
+            <li>ajustements fonctionnels et techniques.</li>
+          </ul>
+          <p>Objectif : tester l’infrastructure en conditions réelles avant généralisation.</p>
+
+          <table class="budget-table" aria-label="Répartition prévisionnelle des dépenses">
+            <thead>
+              <tr>
+                <th>Poste</th>
+                <th>Objectif</th>
+                <th>Montant</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Finalisation de la conformité réglementaire</td>
+                <td>intégration complète des exigences liées à la facturation électronique (mentions, formats, structuration des données)</td>
+                <td>20 000 €</td>
+              </tr>
+              <tr>
+                <td>Renforcement de la robustesse technique et documentaire</td>
+                <td>stabilisation de l’infrastructure logicielle, amélioration de la fiabilité des traitements, formalisation de la documentation fonctionnelle et technique</td>
+                <td>15 000 €</td>
+              </tr>
+              <tr>
+                <td>Sécurisation de l’usage pour un public non expert</td>
+                <td>amélioration de l’ergonomie du parcours utilisateur, réduction des risques d’erreurs de saisie, intégration de mécanismes de contrôle et d’alerte</td>
+                <td>15 000 €</td>
+              </tr>
+              <tr>
+                <td>Traçabilité et fiabilité des processus</td>
+                <td>mise en place de mécanismes de traçabilité des opérations, fiabilisation des données produites, structuration des journaux de traitement</td>
+                <td>10 000 €</td>
+              </tr>
+              <tr>
+                <td>Déploiement pilote auprès des TPE</td>
+                <td>sélection d’un panel de TPE utilisatrices, accompagnement à l’usage, recueil de retours terrain, ajustements fonctionnels et techniques</td>
+                <td>10 000 à 20 000 €</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="budget-cards" aria-label="Répartition prévisionnelle des dépenses (mobile)">
+            <div class="budget-card">
+              <strong>Finalisation de la conformité réglementaire</strong>
+              <div>intégration complète des exigences liées à la facturation électronique (mentions, formats, structuration des données)</div>
+              <div>20 000 €</div>
+            </div>
+            <div class="budget-card">
+              <strong>Renforcement de la robustesse technique et documentaire</strong>
+              <div>stabilisation de l’infrastructure logicielle, amélioration de la fiabilité des traitements, formalisation de la documentation fonctionnelle et technique</div>
+              <div>15 000 €</div>
+            </div>
+            <div class="budget-card">
+              <strong>Sécurisation de l’usage pour un public non expert</strong>
+              <div>amélioration de l’ergonomie du parcours utilisateur, réduction des risques d’erreurs de saisie, intégration de mécanismes de contrôle et d’alerte</div>
+              <div>15 000 €</div>
+            </div>
+            <div class="budget-card">
+              <strong>Traçabilité et fiabilité des processus</strong>
+              <div>mise en place de mécanismes de traçabilité des opérations, fiabilisation des données produites, structuration des journaux de traitement</div>
+              <div>10 000 €</div>
+            </div>
+            <div class="budget-card">
+              <strong>Déploiement pilote auprès des TPE</strong>
+              <div>sélection d’un panel de TPE utilisatrices, accompagnement à l’usage, recueil de retours terrain, ajustements fonctionnels et techniques</div>
+              <div>10 000 à 20 000 €</div>
+            </div>
+          </div>
+
+          <div class="chart-grid">
+            <div class="glass-card">
+              <h3>Répartition budgétaire</h3>
+              <div class="bars" aria-label="Bar chart budget">
+                <div class="bar-row">
+                  <span>Conformité réglementaire</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
+                  <span>20 000 €</span>
+                </div>
+                <div class="bar-row">
+                  <span>Robustesse & doc</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div>
+                  <span>15 000 €</span>
+                </div>
+                <div class="bar-row">
+                  <span>Sécurisation usage</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div>
+                  <span>15 000 €</span>
+                </div>
+                <div class="bar-row">
+                  <span>Traçabilité</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 20%"></div></div>
+                  <span>10 000 €</span>
+                </div>
+                <div class="bar-row">
+                  <span>Déploiement pilote</span>
+                  <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
+                  <span>10 000 à 20 000 €</span>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card">
+              <h3>Poids des TPE</h3>
+              <div class="donut" style="--percent: 90">
+                <span>90%</span>
+              </div>
+              <p>&gt; 90 % du tissu économique français = TPE.</p>
+            </div>
+            <div class="glass-card">
+              <h3>Mise en conformité progressive</h3>
+              <div class="stepper">
+                <div class="step"><div class="step-index">1</div><div>Finalisation de la conformité réglementaire</div></div>
+                <div class="step"><div class="step-index">2</div><div>Renforcement de la robustesse technique et documentaire</div></div>
+                <div class="step"><div class="step-index">3</div><div>Sécurisation de l’usage pour un public non expert</div></div>
+                <div class="step"><div class="step-index">4</div><div>Traçabilité et fiabilité des processus</div></div>
+                <div class="step"><div class="step-index">5</div><div>Déploiement pilote auprès des TPE</div></div>
+              </div>
+            </div>
+          </div>
+
+          <h3>6.3 Logique d’investissement public et retour attendu</h3>
+          <div class="callout success">
+            <strong><i class="bi bi-check-circle"></i> Investissement public préventif</strong>
+            <p>Le financement sollicité doit être considéré comme un investissement public préventif, permettant :</p>
+          </div>
+          <!-- PDF p13 -->
+          <ul>
+            <li>de réduire les coûts futurs liés aux contrôles, sanctions et régularisations,</li>
+            <li>de limiter les contentieux fiscaux,</li>
+            <li>d’améliorer le taux de conformité global des TPE,</li>
+            <li>de sécuriser la réussite de la réforme de la facturation électronique.</li>
+          </ul>
+          <p>Le coût de la non-conformité généralisée des TPE serait, à moyen terme, significativement supérieur au coût de soutien à une infrastructure de conformité accessible.</p>
+          <h3>6.4 Absence de logique spéculative</h3>
+          <p>Le financement public ne vise pas :</p>
+          <ul>
+            <li>une levée de fonds,</li>
+            <li>une rentabilité financière,</li>
+            <li>une logique de croissance spéculative.</li>
+          </ul>
+          <p>Il vise exclusivement :</p>
+          <ul>
+            <li>la consolidation d’un outil d’intérêt général,</li>
+            <li>la sécurisation de l’application d’une réforme nationale,</li>
+            <li>la réduction des risques économiques et administratifs.</li>
+          </ul>
+          <h3>6.5 Garanties pour l’action publique</h3>
+          <p>Le soutien public permettra de garantir :</p>
+          <ul>
+            <li>une application équitable de la réforme, indépendamment de la taille des entreprises,</li>
+            <li>une réduction des inégalités territoriales,</li>
+            <li>une meilleure efficacité globale de la politique publique de facturation électronique.</li>
+          </ul>
+        </section>
+
+        <section id="section-7" class="section-block glass-card reveal" data-section>
+          <h2><i class="bi bi-file-text"></i> 7. Nature de la demande, cadre réglementaire et conditions d’instruction</h2>
+          <p>Le porteur du projet sollicite l’octroi d’une subvention publique non remboursable destinée au financement d’actions strictement liées à la mise en conformité, à la consolidation et à la préparation au déploiement d’une infrastructure de conformité réglementaire dans le cadre de la réforme obligatoire de la facturation électronique 2026–2027.</p>
+          <p>La demande porte exclusivement sur des dépenses futures, non engagées à la date de dépôt du présent dossier.</p>
+          <h3>7.1 Cadre réglementaire de référence</h3>
+          <p>La demande s’inscrit dans le cadre juridique suivant :</p>
+          <ul>
+            <li>ordonnance n°2021-1190 du 15 septembre 2021 relative à la généralisation de la facturation électronique,</li>
+            <li>article 153 de la loi n°2020-1721 du 29 décembre 2020 de finances pour 2021,</li>
+            <li>lois de finances successives et textes d’application relatifs au e-invoicing et au e-reporting,</li>
+            <li>orientations et travaux de l’administration fiscale relatifs à la mise en œuvre de la réforme.</li>
+          </ul>
+          <p>Le projet vise à contribuer à l’application effective de ce cadre réglementaire auprès d’un public identifié comme prioritaire : les très petites entreprises.</p>
+          <h3>7.2 Nature et périmètre de l’aide sollicitée</h3>
+          <p>L’aide sollicitée est :</p>
+          <ul>
+            <li>une subvention non remboursable,</li>
+            <li>sans mécanisme d’avance remboursable,</li>
+            <li>sans obligation de remboursement,</li>
+            <!-- PDF p14 -->
+            <li>sans prise de participation,</li>
+            <li>sans contrepartie financière ou capitalistique.</li>
+          </ul>
+          <p>La subvention demandée vise exclusivement à couvrir des dépenses éligibles de nature :</p>
+          <ul>
+            <li>réglementaire,</li>
+            <li>technique,</li>
+            <li>fonctionnelle,</li>
+            <li>documentaire,</li>
+            <li>et opérationnelle,</li>
+          </ul>
+          <p>telles que détaillées dans la section relative aux objectifs et à l’affectation des moyens.</p>
+          <h3>7.3 Absence de cumul et situation administrative</h3>
+          <p>À la date de dépôt de la demande :</p>
+          <ul>
+            <li>aucune autre aide publique n’a été sollicitée ou obtenue pour les mêmes dépenses,</li>
+            <li>aucun cumul d’aides n’est engagé,</li>
+            <li>aucune dépense n’a été engagée au titre du projet.</li>
+          </ul>
+          <p>Le porteur du projet s’engage, le cas échéant, à déclarer toute demande ou attribution d’aide ultérieure et à respecter les règles applicables en matière de cumul des aides publiques.</p>
+          <h3>Portage du projet</h3>
+          <p>Le projet HexaFact est à ce stade porté à titre individuel par son concepteur et développeur, Djennad Rany, qui a assuré seul la conception, le développement et la mise en œuvre du prototype fonctionnel.</p>
+          <p>Cette initiative individuelle a permis de démontrer la faisabilité technique et la pertinence fonctionnelle de l’infrastructure proposée, tout en mettant en évidence les limites d’un portage isolé pour un projet à vocation d’intérêt général et à dimension réglementaire nationale.</p>
+          <p>Le soutien institutionnel sollicité vise précisément à sécuriser, structurer et adosser le projet à un cadre public ou partenarial, afin d’en garantir la pérennité, la neutralité et l’alignement durable avec les objectifs de la réforme de la facturation électronique.</p>
+          <h3>7.4 Capacité à produire les pièces requises</h3>
+          <p>Le porteur du projet atteste être en capacité de fournir, à la demande de l’organisme instructeur et dans le cadre de l’instruction :</p>
+          <!-- PDF p15 -->
+          <ul>
+            <li>les attestations de situation fiscale et sociale requises,</li>
+            <li>les justificatifs comptables disponibles à la date de l’instruction,</li>
+            <li>un budget prévisionnel détaillé,</li>
+            <li>tout document administratif nécessaire à la vérification de l’éligibilité du projet.</li>
+          </ul>
+          <p>Ces éléments seront transmis conformément aux exigences du dispositif mobilisé.</p>
+          <h3>7.5 Conditions d’utilisation et de contrôle des fonds publics</h3>
+          <p>Le porteur du projet s’engage à :</p>
+          <ul>
+            <li>utiliser les fonds exclusivement pour les actions prévues dans le cadre du projet,</li>
+            <li>respecter les règles d’éligibilité des dépenses,</li>
+            <li>assurer la traçabilité des dépenses financées,</li>
+            <li>fournir les éléments de suivi, de justification et de reporting demandés.</li>
+          </ul>
+          <p>Aucune dépense engagée avant la décision formelle d’attribution ne sera imputée à la subvention.</p>
+          <h3>7.6 Finalité de la demande</h3>
+          <p>La subvention sollicitée vise à permettre la mise à disposition effective d’une infrastructure de conformité réglementaire opérationnelle, contribuant à :</p>
+          <ul>
+            <li>la réduction des risques de non-conformité des TPE,</li>
+            <li>la sécurisation de l’application d’une réforme nationale obligatoire,</li>
+            <li>l’optimisation de l’efficacité de l’action publique.</li>
+          </ul>
+          <p>La demande ne poursuit aucun objectif de financement spéculatif ou commercial.</p>
+        </section>
+
+        <section id="section-8" class="section-block glass-card reveal" data-section>
+          <h2><i class="bi bi-graph-up"></i> 8. Impact attendu</h2>
+          <p>Le projet HexaFact vise à produire des impacts concrets, mesurables et directement liés aux objectifs poursuivis par la réforme obligatoire de la facturation électronique 2026–2027. Les résultats attendus concernent à la fois la conformité réglementaire des très petites entreprises, l’efficacité de l’action publique et la réduction des risques administratifs et économiques.</p>
+          <h3>8.1 Amélioration du taux de conformité des TPE</h3>
+          <p>L’impact principal attendu est l’amélioration significative du taux de conformité des très petites entreprises aux obligations de facturation électronique prévues par le cadre réglementaire en vigueur.</p>
+          <!-- PDF p16 -->
+          <p>La réforme concerne l’ensemble des entreprises assujetties à la TVA, soit plusieurs millions de structures, dont une majorité de TPE. Ces dernières sont identifiées comme un public à risque en matière de non-conformité.</p>
+          <p>HexaFact permettra :</p>
+          <ul>
+            <li>la production de devis et factures conformes,</li>
+            <li>la structuration correcte des données de facturation,</li>
+            <li>l’anticipation des obligations liées au e-invoicing et au e-reporting.</li>
+          </ul>
+          <p>Indicateurs de suivi :</p>
+          <ul>
+            <li>pourcentage de factures générées conformes aux exigences réglementaires,</li>
+            <li>taux de TPE utilisatrices atteignant un niveau de conformité complet,</li>
+            <li>évolution du taux de conformité avant et après déploiement pilote.</li>
+          </ul>
+          <h3>8.2 Réduction des sanctions et des situations de contentieux</h3>
+          <p>La non-conformité à la facturation électronique expose les entreprises à des sanctions financières et à des procédures de régularisation administrative.</p>
+          <p>En facilitant l’accès à un outil conforme et guidé, le projet vise à :</p>
+          <ul>
+            <li>réduire le nombre de situations de non-conformité involontaire,</li>
+            <li>limiter les sanctions financières,</li>
+            <li>diminuer les procédures de régularisation et de contentieux.</li>
+          </ul>
+          <p>Indicateurs de suivi :</p>
+          <ul>
+            <li>nombre d’incidents de non-conformité constatés parmi les utilisateurs,</li>
+            <li>nombre de situations de régularisation évitées,</li>
+            <li>diminution des erreurs de facturation déclarées.</li>
+          </ul>
+          <h3>8.3 Facilitation de l’application de la réforme sur le terrain</h3>
+          <p>La généralisation de la facturation électronique constitue une transformation majeure des pratiques administratives des entreprises.</p>
+          <p>HexaFact contribue à faciliter cette transition en :</p>
+          <ul>
+            <li>proposant un parcours utilisateur guidé,</li>
+            <li>réduisant la complexité technique perçue,</li>
+            <li>permettant une appropriation progressive des nouvelles obligations.</li>
+          </ul>
+          <p>Indicateurs de suivi :</p>
+          <!-- PDF p17 -->
+          <ul>
+            <li>temps moyen de création d’une facture conforme,</li>
+            <li>nombre d’utilisateurs actifs mensuels,</li>
+            <li>taux d’utilisation régulière de l’outil sur la période pilote.</li>
+          </ul>
+          <h3>8.4 Réduction de la fracture numérique</h3>
+          <p>Les très petites entreprises présentent un niveau de maturité numérique hétérogène, souvent inférieur à celui des entreprises de taille plus importante.</p>
+          <p>Le projet vise à réduire cette fracture numérique en :</p>
+          <ul>
+            <li>offrant un accès gratuit et immédiat à un outil conforme,</li>
+            <li>évitant le recours à des solutions coûteuses ou complexes,</li>
+            <li>accompagnant les utilisateurs dans la montée en compétence numérique.</li>
+          </ul>
+          <p>Indicateurs de suivi :</p>
+          <ul>
+            <li>proportion d’utilisateurs déclarant une amélioration de leurs pratiques numériques,</li>
+            <li>taux d’adoption par des TPE initialement peu digitalisées,</li>
+            <li>répartition territoriale des utilisateurs (zones rurales / urbaines).</li>
+          </ul>
+          <h3>8.5 Contribution à une transformation numérique inclusive</h3>
+          <p>HexaFact participe à une transformation numérique inclusive en permettant aux TPE :</p>
+          <ul>
+            <li>d’intégrer des pratiques numériques conformes,</li>
+            <li>de sécuriser leurs échanges commerciaux,</li>
+            <li>de se préparer durablement aux exigences réglementaires futures.</li>
+          </ul>
+          <p>Le projet contribue ainsi à réduire les écarts de maturité numérique entre entreprises et à renforcer la résilience du tissu économique local.</p>
+          <p>Indicateurs de suivi :</p>
+          <ul>
+            <li>taux de satisfaction des utilisateurs,</li>
+            <li>évolution des pratiques administratives déclarées,</li>
+            <li>continuité d’usage après la phase pilote.</li>
+          </ul>
+          <h3>8.6 Impact pour l’action publique</h3>
+          <p>Pour l’administration, les impacts attendus sont :</p>
+          <ul>
+            <li>une augmentation globale du taux de conformité,</li>
+            <li>une réduction des coûts liés aux contrôles et régularisations,</li>
+            <!-- PDF p18 -->
+            <li>une application plus homogène de la réforme sur le territoire,</li>
+            <li>une amélioration de l’efficacité des politiques publiques de modernisation fiscale.</li>
+          </ul>
+          <p>L’impact du projet doit être analysé comme un levier de sécurisation de la réforme, permettant d’anticiper et de limiter les risques structurels liés à la non-conformité des TPE.</p>
+          <h3>8.7 Modalités d’évaluation et de suivi</h3>
+          <p>Les impacts du projet feront l’objet d’un suivi régulier à l’aide :</p>
+          <ul>
+            <li>d’indicateurs quantitatifs (conformité, usage, adoption),</li>
+            <li>d’indicateurs qualitatifs (retours utilisateurs, difficultés rencontrées),</li>
+            <li>de tableaux de suivi transmis à l’organisme financeur si requis.</li>
+          </ul>
+        </section>
+
+        <section id="section-9" class="section-block glass-card reveal" data-section>
+          <h2><i class="bi bi-clipboard-check"></i> 9. État d’avancement du projet</h2>
+          <p>Le projet HexaFact est actuellement opérationnel à l’état de prototype fonctionnel, permettant la génération de devis et de factures structurées et conformes aux exigences légales en vigueur.</p>
+          <p>À ce stade, l’outil démontre la faisabilité technique et fonctionnelle de l’infrastructure de conformité réglementaire proposée, ainsi que la pertinence de son positionnement au regard des besoins identifiés des très petites entreprises.</p>
+          <h3>9.1 Fonctionnalités actuellement disponibles</h3>
+          <p>Le prototype fonctionnel permet notamment :</p>
+          <ul>
+            <li>la saisie et la gestion des informations émetteur et client,</li>
+            <li>la création de devis et factures intégrant les mentions obligatoires,</li>
+            <li>la structuration des données de facturation,</li>
+            <li>la génération de documents exploitables par les utilisateurs.</li>
+          </ul>
+          <p>Ces fonctionnalités constituent une base opérationnelle cohérente avec les exigences réglementaires actuelles.</p>
+          <h3>9.2 Limites actuelles du projet</h3>
+          <p>En l’absence d’accompagnement public, le projet présente à ce stade les limites suivantes :</p>
+          <ul>
+            <li>conformité partielle aux exigences futures de la réforme de la facturation électronique,</li>
+            <!-- PDF p19 -->
+            <li>absence d’intégration complète des dispositifs liés au e-invoicing et au e-reporting,</li>
+            <li>besoin de renforcement de la robustesse technique et de la sécurité des processus,</li>
+            <li>absence de phase de déploiement pilote encadrée auprès d’un panel de TPE.</li>
+          </ul>
+          <p>Ces limites ne remettent pas en cause la pertinence du projet, mais justifient un accompagnement ciblé pour franchir un seuil de conformité réglementaire complet.</p>
+          <h3>9.3 Besoin d’accompagnement public</h3>
+          <p>Un accompagnement public est nécessaire afin de :</p>
+          <ul>
+            <li>finaliser l’alignement de l’infrastructure avec l’ensemble des exigences réglementaires applicables à la réforme 2026–2027,</li>
+            <li>renforcer la fiabilité, la sécurité et la traçabilité des traitements,</li>
+            <li>consolider la documentation fonctionnelle et réglementaire,</li>
+            <li>préparer un déploiement pilote conforme aux attentes des autorités publiques.</li>
+          </ul>
+          <p>Cet accompagnement vise à garantir que l’outil atteigne un niveau de maturité compatible avec une utilisation à grande échelle par les TPE.</p>
+          <h3>9.4 Objectif de maturité du projet</h3>
+          <p>L’objectif du projet est d’atteindre, à l’issue de la phase financée :</p>
+          <ul>
+            <li>un niveau de conformité réglementaire complet,</li>
+            <li>une infrastructure stable et sécurisée,</li>
+            <li>une capacité de déploiement conforme aux exigences de la réforme,</li>
+            <li>une utilisation sécurisée par un public non expert.</li>
+          </ul>
+          <p>L’atteinte de ce niveau de maturité conditionne la contribution effective du projet à la réussite de la réforme nationale de la facturation électronique.</p>
+          <h3>9.5 Temporalité et cohérence avec le calendrier réglementaire</h3>
+          <p>L’état d’avancement actuel du projet est cohérent avec le calendrier de mise en œuvre de la réforme de la facturation électronique, dont la généralisation est prévue entre 2026 et 2027.</p>
+          <p>La phase de consolidation et de déploiement envisagée permet d’anticiper les échéances réglementaires et de préparer les très petites entreprises à une mise en conformité progressive et sécurisée.</p>
+          <h3>Premiers usages terrain</h3>
+          <!-- PDF p20 -->
+          <p>Le prototype HexaFact a fait l’objet de tests en conditions réelles auprès d’un premier cercle d’utilisateurs indépendants (freelances et très petites structures), permettant de valider les parcours de facturation, la compréhension des étapes réglementaires et la simplicité d’usage de l’outil.</p>
+          <p>Les retours recueillis ont directement alimenté la mise à jour récente de la version bêta (v0), notamment sur l’ergonomie, la clarté des champs obligatoires et la réduction des erreurs de saisie.</p>
+          <!-- PDF p21 -->
+        </section>
       </div>
-      <div class="callout info">
-        <strong>Logique d’investissement public</strong>
-        <div>Réduction des coûts futurs liés aux contrôles et régularisations, amélioration du taux de conformité des TPE.</div>
-      </div>
-      <h3>6.3 Logique d’investissement public et retour attendu</h3>
-      <p>Le financement sollicité doit être considéré comme un investissement public préventif, permettant :</p>
-      <ul class="list">
-        <li>de réduire les coûts futurs liés aux contrôles, sanctions et régularisations,</li>
-        <li>de limiter les contentieux fiscaux,</li>
-        <li>d’améliorer le taux de conformité global des TPE,</li>
-        <li>de sécuriser la réussite de la réforme de la facturation électronique.</li>
-      </ul>
-      <p>Le coût de la non-conformité généralisée des TPE serait, à moyen terme, significativement supérieur au coût de soutien à une infrastructure de conformité accessible.</p>
-      <h3>6.4 Absence de logique spéculative</h3>
-      <p>Le financement public ne vise pas :</p>
-      <ul class="list">
-        <li>une levée de fonds,</li>
-        <li>une rentabilité financière,</li>
-        <li>une logique de croissance spéculative.</li>
-      </ul>
-      <p>Il vise exclusivement :</p>
-      <ul class="list">
-        <li>la consolidation d’un outil d’intérêt général,</li>
-        <li>la sécurisation de l’application d’une réforme nationale,</li>
-        <li>la réduction des risques économiques et administratifs.</li>
-      </ul>
-      <h3>6.5 Garanties pour l’action publique</h3>
-      <p>Le soutien public permettra de garantir :</p>
-      <ul class="list">
-        <li>une application équitable de la réforme, indépendamment de la taille des entreprises,</li>
-        <li>une réduction des inégalités territoriales,</li>
-        <li>une meilleure efficacité globale de la politique publique de facturation électronique.</li>
-      </ul>
     </section>
-
-    <section id="cadre" class="section">
-      <h2><span class="emoji" aria-hidden="true">📄</span> 7. Nature de la demande & cadre réglementaire</h2>
-      <p>Le porteur du projet sollicite l’octroi d’une subvention publique non remboursable destinée au financement d’actions strictement liées à la mise en conformité, à la consolidation et à la préparation au déploiement d’une infrastructure de conformité réglementaire dans le cadre de la réforme obligatoire de la facturation électronique 2026–2027.</p>
-      <p>La demande porte exclusivement sur des dépenses futures, non engagées à la date de dépôt du présent dossier.</p>
-      <h3>7.1 Cadre réglementaire de référence</h3>
-      <p>La demande s’inscrit dans le cadre juridique suivant :</p>
-      <ul class="list">
-        <li>ordonnance n°2021-1190 du 15 septembre 2021 relative à la généralisation de la facturation électronique,</li>
-        <li>article 153 de la loi n°2020-1721 du 29 décembre 2020 de finances pour 2021,</li>
-        <li>lois de finances successives et textes d’application relatifs au e-invoicing et au e-reporting,</li>
-        <li>orientations et travaux de l’administration fiscale relatifs à la mise en œuvre de la réforme.</li>
-      </ul>
-      <p>Le projet vise à contribuer à l’application effective de ce cadre réglementaire auprès d’un public identifié comme prioritaire : les très petites entreprises.</p>
-      <h3>7.2 Nature et périmètre de l’aide sollicitée</h3>
-      <p>L’aide sollicitée est :</p>
-      <ul class="list">
-        <li>une subvention non remboursable,</li>
-        <li>sans mécanisme d’avance remboursable,</li>
-        <li>sans obligation de remboursement,</li>
-        <li>sans prise de participation,</li>
-        <li>sans contrepartie financière ou capitalistique.</li>
-      </ul>
-      <p>La subvention demandée vise exclusivement à couvrir des dépenses éligibles de nature :</p>
-      <ul class="list">
-        <li>réglementaire,</li>
-        <li>technique,</li>
-        <li>fonctionnelle,</li>
-        <li>documentaire,</li>
-        <li>et opérationnelle,</li>
-      </ul>
-      <p>telles que détaillées dans la section relative aux objectifs et à l’affectation des moyens.</p>
-      <h3>7.3 Absence de cumul et situation administrative</h3>
-      <p>À la date de dépôt de la demande :</p>
-      <ul class="list">
-        <li>aucune autre aide publique n’a été sollicitée ou obtenue pour les mêmes dépenses,</li>
-        <li>aucun cumul d’aides n’est engagé,</li>
-        <li>aucune dépense n’a été engagée au titre du projet.</li>
-      </ul>
-      <p>Le porteur du projet s’engage, le cas échéant, à déclarer toute demande ou attribution d’aide ultérieure et à respecter les règles applicables en matière de cumul des aides publiques.</p>
-      <h3>Portage du projet</h3>
-      <p>Le projet HexaFact est à ce stade porté à titre individuel par son concepteur et développeur, Djennad Rany, qui a assuré seul la conception, le développement et la mise en œuvre du prototype fonctionnel.</p>
-      <p>Cette initiative individuelle a permis de démontrer la faisabilité technique et la pertinence fonctionnelle de l’infrastructure proposée, tout en mettant en évidence les limites d’un portage isolé pour un projet à vocation d’intérêt général et à dimension réglementaire nationale.</p>
-      <p>Le soutien institutionnel sollicité vise précisément à sécuriser, structurer et adosser le projet à un cadre public ou partenarial, afin d’en garantir la pérennité, la neutralité et l’alignement durable avec les objectifs de la réforme de la facturation électronique.</p>
-      <h3>7.4 Capacité à produire les pièces requises</h3>
-      <p>Le porteur du projet atteste être en capacité de fournir, à la demande de l’organisme instructeur et dans le cadre de l’instruction :</p>
-      <ul class="list">
-        <li>les attestations de situation fiscale et sociale requises,</li>
-        <li>les justificatifs comptables disponibles à la date de l’instruction,</li>
-        <li>un budget prévisionnel détaillé,</li>
-        <li>tout document administratif nécessaire à la vérification de l’éligibilité du projet.</li>
-      </ul>
-      <p>Ces éléments seront transmis conformément aux exigences du dispositif mobilisé.</p>
-      <h3>7.5 Conditions d’utilisation et de contrôle des fonds publics</h3>
-      <p>Le porteur du projet s’engage à :</p>
-      <ul class="list">
-        <li>utiliser les fonds exclusivement pour les actions prévues dans le cadre du projet,</li>
-        <li>respecter les règles d’éligibilité des dépenses,</li>
-        <li>assurer la traçabilité des dépenses financées,</li>
-        <li>fournir les éléments de suivi, de justification et de reporting demandés.</li>
-      </ul>
-      <p>Aucune dépense engagée avant la décision formelle d’attribution ne sera imputée à la subvention.</p>
-      <h3>7.6 Finalité de la demande</h3>
-      <p>La subvention sollicitée vise à permettre la mise à disposition effective d’une infrastructure de conformité réglementaire opérationnelle, contribuant à :</p>
-      <ul class="list">
-        <li>la réduction des risques de non-conformité des TPE,</li>
-        <li>la sécurisation de l’application d’une réforme nationale obligatoire,</li>
-        <li>l’optimisation de l’efficacité de l’action publique.</li>
-      </ul>
-      <p>La demande ne poursuit aucun objectif de financement spéculatif ou commercial.</p>
-    </section>
-
-    <section id="impact" class="section">
-      <h2><span class="emoji" aria-hidden="true">📈</span> 8. Impact attendu</h2>
-      <p>Le projet HexaFact vise à produire des impacts concrets, mesurables et directement liés aux objectifs poursuivis par la réforme obligatoire de la facturation électronique 2026–2027. Les résultats attendus concernent à la fois la conformité réglementaire des très petites entreprises, l’efficacité de l’action publique et la réduction des risques administratifs et économiques.</p>
-      <h3>8.1 Amélioration du taux de conformité des TPE</h3>
-      <p>L’impact principal attendu est l’amélioration significative du taux de conformité des très petites entreprises aux obligations de facturation électronique prévues par le cadre réglementaire en vigueur.</p>
-      <p>La réforme concerne l’ensemble des entreprises assujetties à la TVA, soit plusieurs millions de structures, dont une majorité de TPE. Ces dernières sont identifiées comme un public à risque en matière de non-conformité.</p>
-      <p>HexaFact permettra :</p>
-      <ul class="list">
-        <li>la production de devis et factures conformes,</li>
-        <li>la structuration correcte des données de facturation,</li>
-        <li>l’anticipation des obligations liées au e-invoicing et au e-reporting.</li>
-      </ul>
-      <p>Indicateurs de suivi :</p>
-      <ul class="list">
-        <li>pourcentage de factures générées conformes aux exigences réglementaires,</li>
-        <li>taux de TPE utilisatrices atteignant un niveau de conformité complet,</li>
-        <li>évolution du taux de conformité avant et après déploiement pilote.</li>
-      </ul>
-      <h3>8.2 Réduction des sanctions et des situations de contentieux</h3>
-      <p>La non-conformité à la facturation électronique expose les entreprises à des sanctions financières et à des procédures de régularisation administrative.</p>
-      <p>En facilitant l’accès à un outil conforme et guidé, le projet vise à :</p>
-      <ul class="list">
-        <li>réduire le nombre de situations de non-conformité involontaire,</li>
-        <li>limiter les sanctions financières,</li>
-        <li>diminuer les procédures de régularisation et de contentieux.</li>
-      </ul>
-      <p>Indicateurs de suivi :</p>
-      <ul class="list">
-        <li>nombre d’incidents de non-conformité constatés parmi les utilisateurs,</li>
-        <li>nombre de situations de régularisation évitées,</li>
-        <li>diminution des erreurs de facturation déclarées.</li>
-      </ul>
-      <h3>8.3 Facilitation de l’application de la réforme sur le terrain</h3>
-      <p>La généralisation de la facturation électronique constitue une transformation majeure des pratiques administratives des entreprises.</p>
-      <p>HexaFact contribue à faciliter cette transition en :</p>
-      <ul class="list">
-        <li>proposant un parcours utilisateur guidé,</li>
-        <li>réduisant la complexité technique perçue,</li>
-        <li>permettant une appropriation progressive des nouvelles obligations.</li>
-      </ul>
-      <p>Indicateurs de suivi :</p>
-      <ul class="list">
-        <li>temps moyen de création d’une facture conforme,</li>
-        <li>nombre d’utilisateurs actifs mensuels,</li>
-        <li>taux d’utilisation régulière de l’outil sur la période pilote.</li>
-      </ul>
-      <h3>8.4 Réduction de la fracture numérique</h3>
-      <p>Les très petites entreprises présentent un niveau de maturité numérique hétérogène, souvent inférieur à celui des entreprises de taille plus importante.</p>
-      <p>Le projet vise à réduire cette fracture numérique en :</p>
-      <ul class="list">
-        <li>offrant un accès gratuit et immédiat à un outil conforme,</li>
-        <li>évitant le recours à des solutions coûteuses ou complexes,</li>
-        <li>accompagnant les utilisateurs dans la montée en compétence numérique.</li>
-      </ul>
-      <p>Indicateurs de suivi :</p>
-      <ul class="list">
-        <li>proportion d’utilisateurs déclarant une amélioration de leurs pratiques numériques,</li>
-        <li>taux d’adoption par des TPE initialement peu digitalisées,</li>
-        <li>répartition territoriale des utilisateurs (zones rurales / urbaines).</li>
-      </ul>
-      <h3>8.5 Contribution à une transformation numérique inclusive</h3>
-      <p>HexaFact participe à une transformation numérique inclusive en permettant aux TPE :</p>
-      <ul class="list">
-        <li>d’intégrer des pratiques numériques conformes,</li>
-        <li>de sécuriser leurs échanges commerciaux,</li>
-        <li>de se préparer durablement aux exigences réglementaires futures.</li>
-      </ul>
-      <p>Le projet contribue ainsi à réduire les écarts de maturité numérique entre entreprises et à renforcer la résilience du tissu économique local.</p>
-      <p>Indicateurs de suivi :</p>
-      <ul class="list">
-        <li>taux de satisfaction des utilisateurs,</li>
-        <li>évolution des pratiques administratives déclarées,</li>
-        <li>continuité d’usage après la phase pilote.</li>
-      </ul>
-      <h3>8.6 Impact pour l’action publique</h3>
-      <p>Pour l’administration, les impacts attendus sont :</p>
-      <ul class="list">
-        <li>une augmentation globale du taux de conformité,</li>
-        <li>une réduction des coûts liés aux contrôles et régularisations,</li>
-        <li>une application plus homogène de la réforme sur le territoire,</li>
-        <li>une amélioration de l’efficacité des politiques publiques de modernisation fiscale.</li>
-      </ul>
-      <p>L’impact du projet doit être analysé comme un levier de sécurisation de la réforme, permettant d’anticiper et de limiter les risques structurels liés à la non-conformité des TPE.</p>
-      <h3>8.7 Modalités d’évaluation et de suivi</h3>
-      <p>Les impacts du projet feront l’objet d’un suivi régulier à l’aide :</p>
-      <ul class="list">
-        <li>d’indicateurs quantitatifs (conformité, usage, adoption),</li>
-        <li>d’indicateurs qualitatifs (retours utilisateurs, difficultés rencontrées),</li>
-        <li>de tableaux de suivi transmis à l’organisme financeur si requis.</li>
-      </ul>
-    </section>
-
-    <section id="etat" class="section">
-      <h2><span class="emoji" aria-hidden="true">✅</span> 9. État d’avancement du projet</h2>
-      <p>Le projet HexaFact est actuellement opérationnel à l’état de prototype fonctionnel, permettant la génération de devis et de factures structurées et conformes aux exigences légales en vigueur.</p>
-      <p>À ce stade, l’outil démontre la faisabilité technique et fonctionnelle de l’infrastructure de conformité réglementaire proposée, ainsi que la pertinence de son positionnement au regard des besoins identifiés des très petites entreprises.</p>
-      <h3>9.1 Fonctionnalités actuellement disponibles</h3>
-      <p>Le prototype fonctionnel permet notamment :</p>
-      <ul class="list">
-        <li>la saisie et la gestion des informations émetteur et client,</li>
-        <li>la création de devis et factures intégrant les mentions obligatoires,</li>
-        <li>la structuration des données de facturation,</li>
-        <li>la génération de documents exploitables par les utilisateurs.</li>
-      </ul>
-      <p>Ces fonctionnalités constituent une base opérationnelle cohérente avec les exigences réglementaires actuelles.</p>
-      <h3>9.2 Limites actuelles du projet</h3>
-      <p>En l’absence d’accompagnement public, le projet présente à ce stade les limites suivantes :</p>
-      <ul class="list">
-        <li>conformité partielle aux exigences futures de la réforme de la facturation électronique,</li>
-        <li>absence d’intégration complète des dispositifs liés au e-invoicing et au e-reporting,</li>
-        <li>besoin de renforcement de la robustesse technique et de la sécurité des processus,</li>
-        <li>absence de phase de déploiement pilote encadrée auprès d’un panel de TPE.</li>
-      </ul>
-      <p>Ces limites ne remettent pas en cause la pertinence du projet, mais justifient un accompagnement ciblé pour franchir un seuil de conformité réglementaire complet.</p>
-      <h3>9.3 Besoin d’accompagnement public</h3>
-      <p>Un accompagnement public est nécessaire afin de :</p>
-      <ul class="list">
-        <li>finaliser l’alignement de l’infrastructure avec l’ensemble des exigences réglementaires applicables à la réforme 2026–2027,</li>
-        <li>renforcer la fiabilité, la sécurité et la traçabilité des traitements,</li>
-        <li>consolider la documentation fonctionnelle et réglementaire,</li>
-        <li>préparer un déploiement pilote conforme aux attentes des autorités publiques.</li>
-      </ul>
-      <p>Cet accompagnement vise à garantir que l’outil atteigne un niveau de maturité compatible avec une utilisation à grande échelle par les TPE.</p>
-      <h3>9.4 Objectif de maturité du projet</h3>
-      <p>L’objectif du projet est d’atteindre, à l’issue de la phase financée :</p>
-      <ul class="list">
-        <li>un niveau de conformité réglementaire complet,</li>
-        <li>une infrastructure stable et sécurisée,</li>
-        <li>une capacité de déploiement conforme aux exigences de la réforme,</li>
-        <li>une utilisation sécurisée par un public non expert.</li>
-      </ul>
-      <p>L’atteinte de ce niveau de maturité conditionne la contribution effective du projet à la réussite de la réforme nationale de la facturation électronique.</p>
-      <h3>9.5 Temporalité et cohérence avec le calendrier réglementaire</h3>
-      <p>L’état d’avancement actuel du projet est cohérent avec le calendrier de mise en œuvre de la réforme de la facturation électronique, dont la généralisation est prévue entre 2026 et 2027.</p>
-      <p>La phase de consolidation et de déploiement envisagée permet d’anticiper les échéances réglementaires et de préparer les très petites entreprises à une mise en conformité progressive et sécurisée.</p>
-      <h3>Premiers usages terrain</h3>
-      <p>Le prototype HexaFact a fait l’objet de tests en conditions réelles auprès d’un premier cercle d’utilisateurs indépendants (freelances et très petites structures), permettant de valider les parcours de facturation, la compréhension des étapes réglementaires et la simplicité d’usage de l’outil.</p>
-      <p>Les retours recueillis ont directement alimenté la mise à jour récente de la version bêta (v0), notamment sur l’ergonomie, la clarté des champs obligatoires et la réduction des erreurs de saisie.</p>
-    </section>
-
   </main>
 
-  <footer>
+  <footer class="hf-footer">
     <div>Généré avec HexaFact — <a href="https://djennadrany.github.io/factureDevis/">Ouvrir l’app</a></div>
     <div class="footer-links">
-      <a href="ProjetHF.html">Projet HexaFact 2026–2027</a>
-      <a href="#">Mentions</a>
-      <a href="#">Contact</a>
+      <a href="#" aria-label="Mentions légales">Mentions légales</a>
+      <a href="#" aria-label="Contact">Contact</a>
+      <a href="ProjetHF.html">Projet HexaFact</a>
+    </div>
+    <div class="back-top">
+      <button id="backToTop" class="btn-hf" aria-label="Retour en haut">
+        <i class="bi bi-arrow-up"></i> Retour en haut
+      </button>
     </div>
   </footer>
+
+  <!-- Checklist intégrité
+  Sections trouvées : 9
+  Sections intégrées : 1. Contexte réglementaire et institutionnel; 2. Problème structurel identifié; 3. Enjeux d’intérêt public; 4. Solution proposée : HexaFact; 5. Caractère stratégique et alignement avec les politiques publiques; 6. Objectifs du financement public sollicité et affectation des moyens; 7. Nature de la demande, cadre réglementaire et conditions d’instruction; 8. Impact attendu; 9. État d’avancement du projet.
+  Confirmation : aucun passage omis
+  -->
+
+  <script src="script.js?v=1"></script>
+  <script src="script/tracking.min.js?v=2"></script>
 </body>
 </html>
